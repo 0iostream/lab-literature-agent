@@ -1,6 +1,6 @@
 # 实验室文献问答 Agent（Agentic RAG）
 
-手写 **ReAct** 循环的本地文献问答：模型自主决定是否检索、改写 query、精读片段或计算；答案须带可验证 `[doc_id#chunk]` 引用，证据不足则拒答。不是单轮 RAG 套壳聊天。
+手写 **ReAct** 循环的本地文献问答：模型自主决定是否检索、改写 query、精读片段或计算；答案须带可验证 `[doc_id#chunk]` 引用，证据不足则拒答。
 
 License：[MIT](LICENSE) · 仓库：https://github.com/0iostream/lab-literature-agent
 
@@ -19,10 +19,11 @@ License：[MIT](LICENSE) · 仓库：https://github.com/0iostream/lab-literature
 
 | 实验 | 规模 | 结果 |
 | --- | --- | --- |
-| 检索对照 | 22 条金标 | Recall@3：词法 / 向量 / 混合 = **0.75 / 1.00 / 1.00**；MRR = **0.82 / 0.95 / 1.00**（`retrieval_report.json`） |
-| Workflow vs ReAct | 10 道检索题 | 成功率均为 **1.00**；平均步数 **2.0 / 2.6**；平均延迟约 **4.5s / 21s**（`workflow_compare_report.json`） |
+| 检索对照 | 22 条金标 | Recall@3：词法 / 向量 / 混合 = **0.57 / 0.68 / 0.75**；混合+rerank = **0.96**；MRR 混合 / +rerank = **0.68 / 0.91**（`retrieval_report.json`） |
+| 端到端 | 25 条金标 | 工具选择 **1.00**、合法引用率 **1.00**、拒答 F1 **0.89**（`last_report.json`，本地生成） |
+| Workflow vs ReAct | 10 道检索题 | 成功率 **0.90 / 1.00**；平均步数 **2.0 / 2.4**；平均延迟约 **6.8s / 19s**（`workflow_compare_report.json`） |
 
-端到端全量数字以本地跑 `python -m src.cli eval` 生成的报告为准（含工具选择、合法引用率、拒答 F1）。
+数字对应当前本地笔记库与自建金标；开放域未测。
 
 ## 非目标
 

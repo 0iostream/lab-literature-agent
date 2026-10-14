@@ -20,9 +20,9 @@
     "pipeline": "agentic_react",
     "n": 10,
     "success_rate": 1.0,
-    "avg_steps": 2.6,
-    "avg_latency_ms": 21009.157,
-    "avg_tokens_est": 348.0,
+    "avg_steps": 2.4,
+    "avg_latency_ms": 19462.113,
+    "avg_tokens_est": 405.1,
     "error_types": {
       "ok": 10
     }
@@ -30,12 +30,13 @@
   "workflow": {
     "pipeline": "langgraph_fixed",
     "n": 10,
-    "success_rate": 1.0,
+    "success_rate": 0.9,
     "avg_steps": 2.0,
-    "avg_latency_ms": 4495.072999999999,
-    "avg_tokens_est": 821.3,
+    "avg_latency_ms": 6763.353999999999,
+    "avg_tokens_est": 943.2,
     "error_types": {
-      "ok": 10
+      "ok": 9,
+      "应拒答却未拒答": 1
     }
   },
   "cases": {
@@ -44,15 +45,15 @@
         "id": "react_1",
         "type": "proper_noun",
         "question": "ReAct 里三个字母分别代表什么？请引用文献片段。",
-        "answer": "查到文献了，不过要先纠正一点：**ReAct 这五个字母其实是两个词拼出来的**，没有三个字母各代表一个词的说法。\n\n**论文原意**：ReAct = **Rea**soning + **Act**ing，即「推理」与「行动」交错进行（Yao et al., 2022）[react#0]。\n\n如果你问的是循环里的**三段结构**，那是三个环节：\n\n| 环节 | 对应 |\n|---|---|\n| **Reasoning（Thought）** | 模型用自然语言写下当前判断 [react#0] |\n| **Acting（Action）** | 选择一个工具并给出参数 [react#0] |\n| **Observation** | 环境或工具返回的结果，进入下一步 Thought [react#0] |\n\n所以更常见的说法是 **Thought → Action → Observation** 三步循环，直到模型给出最终答案或触达步数上限 [react#0]。它解决的问题是：纯 Chain-of-Thought 不能获取新信息、改不了外部状态；纯工具调用缺少中间推理、容易选错工具；ReAct 用 Observation 纠正 Thought，减少幻觉并让轨迹可检查 [react#0]。",
-        "steps": 2,
+        "answer": "ReAct 这个名字是 **Reasoning + Acting 的合成词**（Re + Act），即\"推理\"与\"行动\"交错进行，出自 Yao et al., 2022 [react#0]。\n\n需要区分两层：\n\n**1. 名字本身的来源**\n- **Re = Reasoning（推理）**：模型用自然语言写下当前的判断，对应轨迹里的 **Thought**。\n- **Act = Acting（行动）**：选择一个工具并给出参数，对应轨迹里的 **Action**。\n\n**2. 循环里的三个组成要素** [react#0]\n- **Reasoning（Thought）**：写下当前判断。\n- **Acting（Action）**：选工具、给参数。\n- **Observation**：环境或工具返回的结果，进入下一步 Thought。\n\n循环直到模型给出最终答案，或达到步数上限 [react#0]。\n\n补充一点：之所以需要这样交错，是因为纯 Chain-of-Thought 既不能获取新信息、也改不了外部状态；而纯工具调用缺少中间推理，容易选错工具。ReAct 用 Observation 纠正 Thought，从而减少幻觉，并让轨迹可检查 [react#0]。\n\n（说明：文献中\"The three letters\"小节实际列的是 Reasoning/Acting/Observation 这三个循环要素，而严格从缩写看，ReAct 的两个语素是 Reasoning 与 Acting。）",
+        "steps": 3,
         "tools": [
-          "search_docs"
+          "search_docs",
+          "search_docs",
+          "read_chunk"
         ],
         "stopped_reason": "final",
         "citation_ids": [
-          "react#0",
-          "react#0",
           "react#0",
           "react#0",
           "react#0",
@@ -60,8 +61,8 @@
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 121924.26,
-        "tokens_est": 287,
+        "latency_ms": 85179.7,
+        "tokens_est": 338,
         "tool_selection_ok": true,
         "success": true
       },
@@ -69,27 +70,35 @@
         "id": "react_2",
         "type": "factual",
         "question": "ReAct 相比纯 Chain-of-Thought 解决了什么问题？请引用。",
-        "answer": "**ReAct 相比纯 Chain-of-Thought（CoT）解决的核心问题：**\n\n纯 CoT 只在模型内部做自然语言推理，**不能获取新信息，也改不了外部状态**（例如查不到实时数据、无法调用工具改变环境），因此推理再长也受限于参数记忆，容易停留在「自说自话」的幻觉里。[react#0]\n\nReAct 的做法是把 **Reasoning（Thought）与 Acting（Action）交错进行**：Thought 写下当前判断，Action 选择工具并给出参数，环境返回 **Observation** 后进入下一步 Thought，循环直到给出最终答案或达到步数上限。[react#0]\n\n它带来的改进是：\n- **用 Observation 纠正 Thought**：外部反馈进入推理链，减少幻觉；[react#0]\n- **让轨迹可检查**：每步的思考-行动-观察都可审计；[react#0]\n- 顺带也补上了另一半问题——**纯工具调用缺少中间推理，容易选错工具**，ReAct 的显式 Thought 缓解了这一点。[react#0]\n\n**工程上配套的三条约束**（原文所列）：1) 设最大步数防死循环；2) 检测重复工具调用逼模型停下；3) 工具失败时的错误处理——注意我读到的片段在这一条处被截断，第三点的完整表述文献里没有给全，我不做补充。[react#0]\n\n一句话总结：CoT 解决「会想但不会查」，纯工具调用解决「会查但不会想」，ReAct 用「想—做—看」的闭环同时解决了两者的短板。[react#0]",
-        "steps": 3,
+        "answer": "核心答案在 [react#0] 与 [react#1]。\n\n**ReAct 相比纯 Chain-of-Thought 解决的核心问题：**\n\n纯 Chain-of-Thought 只能在模型已有的参数知识里\"想\"，它**不能获取新信息，也改不了外部状态**——推理链条再长，也不会带来任何新证据 [react#0]。ReAct 的做法是把 Reasoning（Thought）与 Acting（Action）交错进行，每一步工具返回的 Observation 再进入下一步 Thought [react#0]，因此：\n\n1. **引入外部信息与状态变更**：Thought → Action（选工具+参数）→ Observation → 下一步 Thought 的循环，让模型在推理中途就能从环境/工具拿到新信息，而不是只靠内部记忆 [react#0]。\n2. **用 Observation 纠正 Thought，减少幻觉**：外部返回结果成为对当前判断的检验，能压掉一部分凭空编造的内容 [react#0][react#1]。\n3. **让轨迹可检查**：Thought-Action-Observation 是可审计的轨迹；论文出处为 Yao et al., 2022 [react#0]。这一点也是它区别于\"伪 Agent\"的关键——仅按关键词路由插件、或固定\"永远先搜再答\"的流水线都不算完整 ReAct，因为 ReAct 要求**每一步的工具选择依赖上一轮 Observation** [react#4]。\n4. **补上纯工具调用的短板**：反过来，纯粹的工具调用缺少中间推理，容易选错工具，ReAct 用 Thought 补上这一环 [react#0]。\n\n**代价与配套约束：** 循环需要最大步数防止死循环、需要重复调用检测逼模型停下、工具失败要把错误当 Observation 回传而不是静默吞掉 [react#1]；多跳场景下 ReAct 比固定 Workflow 更合适，但仍需 max_steps，否则可能无意义地反复搜索 [react#3]。\n\n注：以上结论来自本地笔记 [react#0]、[react#1]、[react#3]、[react#4]；论文原始实验数据未在检索到的片段中给出，我无法引用具体评测数字。",
+        "steps": 2,
         "tools": [
           "search_docs",
-          "search_docs",
-          "read_chunk"
+          "search_docs"
         ],
         "stopped_reason": "final",
         "citation_ids": [
           "react#0",
+          "react#1",
           "react#0",
           "react#0",
           "react#0",
           "react#0",
+          "react#1",
           "react#0",
-          "react#0"
+          "react#4",
+          "react#0",
+          "react#1",
+          "react#3",
+          "react#0",
+          "react#1",
+          "react#3",
+          "react#4"
         ],
         "has_valid_citation": true,
-        "refused": true,
-        "latency_ms": 9489.94,
-        "tokens_est": 354,
+        "refused": false,
+        "latency_ms": 11402.32,
+        "tokens_est": 505,
         "tool_selection_ok": true,
         "success": true
       },
@@ -97,29 +106,26 @@
         "id": "rag_1",
         "type": "factual",
         "question": "传统 RAG 为什么还不算 Agent？请引用。",
-        "answer": "## 传统 RAG 为什么还不算 Agent\n\n核心判断标准是**控制流归谁**：步骤写在代码里，还是由模型在每一步自己选。\n\n**1. 传统 RAG 是固定流水线，控制流在代码里。**\n文献里描述得很直接：传统 RAG 是「切分 → 向量化 → 取 top-k → 一次性生成」，控制流在代码里，属于**增强型问答，还不是 Agent** [rag#0]。\n\n**2. 对照 Agent 与 Workflow 的定义就更清楚了。**\n- Workflow：步骤由代码写死，例如「先检索再生成再校验引用」，延迟和分支可预期 [workflow_agent#0]。\n- Agent：下一步由模型选择，适合分支事先说不清的任务 [workflow_agent#0]。\n\n传统 RAG 无论检索还是生成，顺序和次数都是预先编排的，所以它落在 Workflow（甚至只是单轮增强问答）一侧。\n\n**3. 「行动-观察」闭环是另一条硬指标。**\n「把聊天机器人加上按关键词触发的插件，并不等于 Agent。关键看有没有『行动-观察』闭环和多步自主决策」[workflow_agent#1]。传统 RAG 只检索一次、生成一次，没有「观察结果 → 决定下一步」的循环。\n\n**4. 差别体现在 Agentic RAG 上。**\nAgentic RAG 由模型决定：现在要不要搜、搜什么、要不要改写 query 再搜、要不要读某个 chunk；检索成为**工具**，而不是永远先搜再答 [rag#0]。它适合问题是否需要检索并不确定、或需要多跳（先搜 A 再根据 A 搜 B）的场景 [rag#0]。\n\n**一句话总结**：传统 RAG 缺的不是「检索能力」，而是让模型自主决定何时、如何、是否继续检索的决策权与行动-观察闭环，因此它是增强型问答流水线，而非 Agent [rag#0][workflow_agent#0][workflow_agent#1]。\n\n（补充一点落地视角：实际系统常用混合方式——外层 Workflow 保证超时、权限和日志，内层个别节点交给 Agent，不必为了多 Agent 而多 Agent [workflow_agent#0]。）",
+        "answer": "## 结论\n\n传统 RAG 之所以不算 Agent，核心在于**控制流不在模型手里，而在代码里**。\n\n## 依据\n\n**1. 固定流水线，模型没有决策权**\n\n传统 RAG 是「切分 → 向量化 → 取 top-k → 一次性生成」的固定流水线，控制流写在代码中。因此它被明确定性为「增强型问答，还不是 Agent」[rag#0]。也就是说，无论问题是否需要外部知识，检索都必然先发生，模型只能被动消费检索结果，不能决定「现在要不要搜」。\n\n**2. Agentic RAG 的差别：检索变成工具**\n\n与之对照，Agentic RAG 由模型决定：现在要不要搜、搜什么、要不要改写 query 再搜、要不要读某个 chunk。此时「检索成为工具，而不是永远先搜再答」[rag#0]。判断分界线可以概括为：\n\n- 传统 RAG：检索是**流水线的一个固定阶段**；\n- Agentic RAG：检索是**模型可调用的工具**，调用时机与次数由模型决定 [rag#0]。\n\n**3. 适用场景上的区分**\n\n当「问题是否需要检索并不确定，或需要多跳（先搜 A 再根据 A 搜 B）」时，才需要 Agentic 的做法 [rag#0]。反过来说，传统 RAG 对这类不确定性无能为力——它无法根据第一步的检索结果去决定第二步搜什么。\n\n**4. 评测上的旁证**\n\n在对比实验中，」固定 RAG「被保留为一条「先搜再答」的基线，用来衡量 Agent 多出来的步数究竟换到了什么（更少误检索、更好拒答，或只是更慢）[agent_eval#3]。把固定 RAG 当作**对照组**而非 Agent 本身，也从侧面说明二者被当作不同类别看待。\n\n## 一句话总结\n\n传统 RAG 是**静态的增强型问答**：检索流程预先写死，模型只负责最后一步生成；Agent 的关键特征是模型对「是否检索、检索什么、是否重试」拥有**自主决策权**，检索因此从固定阶段降格为一个工具 [rag#0]。\n\n（引用：chunk_id 见文中标注，如 [rag#0]、[agent_eval#3]。）",
         "steps": 2,
         "tools": [
-          "search_docs",
           "search_docs"
         ],
         "stopped_reason": "final",
         "citation_ids": [
           "rag#0",
-          "workflow_agent#0",
-          "workflow_agent#0",
-          "workflow_agent#1",
           "rag#0",
           "rag#0",
           "rag#0",
-          "workflow_agent#0",
-          "workflow_agent#1",
-          "workflow_agent#0"
+          "agent_eval#3",
+          "rag#0",
+          "rag#0",
+          "agent_eval#3"
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 9397.58,
-        "tokens_est": 475,
+        "latency_ms": 8915.14,
+        "tokens_est": 455,
         "tool_selection_ok": true,
         "success": true
       },
@@ -127,7 +133,7 @@
         "id": "rag_2",
         "type": "factual",
         "question": "Agentic RAG 和传统 RAG 的关键差别是什么？请引用。",
-        "answer": "核心差别在于**控制流由谁掌握**：传统 RAG 把检索写死在代码里，Agentic RAG 把检索变成模型自己决定调用的工具。\n\n**传统 RAG**：固定流水线——「切分 → 向量化 → 取 top-k → 一次性生成」，控制流在代码里；本质上是增强型问答，还不算是 Agent [rag#0]。\n\n**Agentic RAG**：由模型决定「现在要不要搜、搜什么、要不要改写 query 再搜、要不要读某个 chunk」；检索成为工具，而不是永远先搜再答 [rag#0]。适用场景是：问题是否需要检索并不确定，或者需要多跳（先搜 A，再根据 A 的结果搜 B）[rag#0]。\n\n这两者正好对应 workflow 与 agent 的分野：Workflow 的步骤由代码写死（例如「先检索再生成再校验引用」），延迟和分支可预期；Agent 的下一步由模型选择，适合分支事先说不清的任务（[workflow_agent#0]）。判定是否真为 Agent，关键看有没有「行动-观察」闭环和多步自主决策，而不是看是否接了插件 [workflow_agent#1]。\n\n落地经验上，文献建议混合使用：外层用 Workflow 保证超时、权限和日志，内层个别节点交给 Agent，不要为了多 Agent 而多 Agent [workflow_agent#0]。\n\n另外一点一致性要求：可靠系统应在答案中保留 chunk_id，没有检索命中时应拒绝回答而非编造文献 [rag#0]——也就是本回答这种标注方式。",
+        "answer": "## Agentic RAG vs 传统 RAG 的关键差别\n\n核心差别在**检索的控制权在谁手里**。\n\n**传统 RAG：固定流水线**\n流程是写死的：切分 → 向量化 → 取 top-k → 一次性生成。控制流在代码里，检索永远在生成之前发生一次，属于「增强型问答，还不是 Agent」[rag#0]。\n\n**Agentic RAG：检索变成模型可调用的工具**\n由模型决定：现在要不要搜、搜什么、要不要改写 query 再搜、要不要读某个 chunk。检索是工具，而不是「永远先搜再答」[rag#0]。\n\n**适用场景**\n当「问题是否需要检索」并不确定，或需要多跳（先搜 A 再根据 A 搜 B）时，Agentic RAG 才有价值 [rag#0]。\n\n**附带的方法论差异：评测基线**\n实践中建议除 Agentic 外，保留一条「先搜再答」的固定基线作对照，用来量化 Agent 多出的步数换到了什么——更少误检索、更好拒答，还是只是更慢。对照必须同题、同库、同模型，否则结论无效 [agent_eval#3]。\n\n**一句话总结**：传统 RAG 是\"先检索、后生成\"的固定管线；Agentic RAG 把检索降格为工具，由模型按需决定检索的时机、内容与轮次 [rag#0]。\n\n（补充：可靠系统应在答案中保留 chunk_id，无检索命中时应拒答而非编造 [rag#0]。）",
         "steps": 2,
         "tools": [
           "search_docs",
@@ -138,15 +144,14 @@
           "rag#0",
           "rag#0",
           "rag#0",
-          "workflow_agent#0",
-          "workflow_agent#1",
-          "workflow_agent#0",
+          "agent_eval#3",
+          "rag#0",
           "rag#0"
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 7141.68,
-        "tokens_est": 341,
+        "latency_ms": 10733.9,
+        "tokens_est": 314,
         "tool_selection_ok": true,
         "success": true
       },
@@ -154,29 +159,25 @@
         "id": "attn_1",
         "type": "proper_noun",
         "question": "为什么 Attention 里要点积除以 sqrt(d_k)？请引用。",
-        "answer": "文献库里能找到的直接说法的依据如下：\n\n## 文献中的表述\n\n本地笔记 [transformer#0] 在讲解 Scaled Dot-Product Attention 时明确写道：\n\n> 对每个位置构造 Query、Key、Value。**相似度是 Query 与 Key 的点积，再除以 sqrt(d_k) 防止点积过大导致 softmax 过尖。**\n\n所以缩放因子 sqrt(d_k) 的作用在这份文献中被归结为一点：**抑制点积的数值规模，避免 softmax 输出过度尖锐**。\n\n## 需要注意的边界\n\n文献 [transformer#0] 只给出了这一条结论式说明，**没有**展开背后的统计推导（例如「假设 q、k 各维独立、均值 0 方差 1，则点积方差约为 d_k，故标准差为 sqrt(d_k)」），也**没有**讨论 d_k 较大时 softmax 落在饱和区、梯度变小的问题。这些常见解释在你的文献库中检索不到（我搜了「softmax 梯度消失 / 点积过大 / d_k 缩放」，除 [transformer#0] 外没有相关命中，其余命中如 [rag#0]、[react#1]、[workflow_agent#1] 分数极低，与本题无关）。\n\n因此：\n\n- **可以说**：除以 sqrt(d_k) 是为了防止点积过大、使 softmax 过度尖锐 —— 依据 [transformer#0]。\n- **不能凭本地文献说**：方差为 d_k 的推导、梯度饱和的具体论证 —— 这属于库外知识，此处不作断言。\n\n另外，[transformer#0] 与 [transformer#1] 是同一份笔记的相邻片段，[transformer#1] 讲的是编码器/解码器与掩码，与缩放问题无关。",
-        "steps": 2,
+        "answer": "## 回答\n\n本库中相关的说明在 Transformer 笔记的「Scaled Dot-Product Attention」一节：\n\n> 对每个位置构造 Query、Key、Value。相似度是 Query 与 Key 的点积，**再除以 sqrt(d_k) 防止点积过大导致 softmax 过尖**。得到的权重乘到 Value 上，就是该位置的输出。[transformer#0]\n\n也就是说，缩放（除以 √d_k）的作用是**控制点积的量级**：当 d_k 较大时，Query·Key 的点积数值会随之变大，若直接送进 softmax，分布会退化成「接近 one-hot」的极尖形态（某一位置权重接近 1，其余接近 0），这会带来两方面问题——梯度变得很小、训练不稳定，以及注意力过于集中于单一位置而失去对多个相关位置的软性加权能力。除以 √d_k 把点积拉回到较温和的尺度，使 softmax 输出更平滑、训练更稳。[transformer#0]\n\n补充一点边界说明（避免过度推断）：本地笔记只给出了上述「防止点积过大 / softmax 过尖」的直觉解释，**并没有**展开「点积方差随 d_k 线性增长、故标准差约 √d_k」这一统计学推导，也没有给出原论文的章节或公式编号。如果你想引用精确的推导，需要另找原始论文，本地库无法支持。[transformer#0][transformer#1]\n\n另外，笔记中同一节还提到缩放的上下文是多头注意力把 d_model 拆成多个子空间并行计算，这也意味着每个头的 d_k 通常不大，缩放因子与具体头的维度绑定。[transformer#0]",
+        "steps": 3,
         "tools": [
           "search_docs",
-          "search_docs"
+          "search_docs",
+          "read_chunk"
         ],
         "stopped_reason": "final",
         "citation_ids": [
           "transformer#0",
           "transformer#0",
           "transformer#0",
-          "rag#0",
-          "react#1",
-          "workflow_agent#1",
-          "transformer#0",
-          "transformer#0",
           "transformer#1",
-          "transformer#1"
+          "transformer#0"
         ],
         "has_valid_citation": true,
-        "refused": true,
-        "latency_ms": 7879.47,
-        "tokens_est": 395,
+        "refused": false,
+        "latency_ms": 13601.14,
+        "tokens_est": 366,
         "tool_selection_ok": true,
         "success": true
       },
@@ -184,7 +185,7 @@
         "id": "wf_1",
         "type": "factual",
         "question": "Workflow 和 Agent 应该如何混用？请引用。",
-        "answer": "## 结论：混用的原则是「外层用 Workflow，内层个别节点用 Agent」\n\n文献里给出的落地做法是：\n\n> **落地常用混合：外层 Workflow 保证超时、权限和日志，内层个别节点交给 Agent。不要为了多 Agent 而多 Agent。** [workflow_agent#0]\n\n拆开说，混用的依据在于两者的边界很清楚：\n\n| 形态 | 下一步由谁决定 | 特点 |\n|---|---|---|\n| Tool | —— | 一次有明确输入输出的能力，例如 search_docs |\n| Workflow | 步骤由**代码写死**，例如「先检索 → 再生成 → 再校验引用」 | 延迟和分支**可预期** |\n| Agent | 下一步由**模型选择** | 适合分支事先说不清的任务 |\n\n[workflow_agent#0]\n\n所以混用的判断标准是：**凡是分支事先说不清的地方才开 Agent，其余步骤收进 Workflow 的固定流水线**。可控性（超时、权限、日志、可预期延迟）由外层 Workflow 承担，灵活性由内层的 Agent 节点承担。\n\n## 一个具体的混合形态：Agentic RAG\n\n文献里有一个现成的例子说明「固定流程 + 模型自主决策」怎么拼：\n\n- **传统 RAG**：固定流水线「切分 → 向量化 → 取 top-k → 一次性生成」，控制流在代码里 —— **这是增强型问答，还不是 Agent**，本质上就是一个 Workflow。[rag#0]\n- **Agentic RAG**：由模型决定「现在要不要搜、搜什么、要不要改写 query 再搜、要不要读某个 chunk」，**检索成为工具，而不是永远先搜再答**。适用场景是「问题是否需要检索并不确定」，或需要多跳（先搜 A 再根据 A 搜 B）。[rag#0]\n\n也就是说，把 RAG 这条流水线里「是否检索、检索什么」这一个节点从代码换成模型决策，剩下的切分、引用校验等仍由代码保证 —— 这正是外层 Workflow、内层 Agent 的形态。\n\n## 两点提醒\n\n1. **别把加了插件就叫 Agent**：「把聊天机器人加上按关键词触发的插件，并不等于 Agent。关键看有没有『行动-观察』闭环和多步自主决策。」[workflow_agent#1] 如果内层节点没有这个闭环，那它只是个 Workflow 节点，没必要复杂化。\n2. **Agent 节点要配套工程约束**：ReAct 式的内层节点「工程上必做三件事」——最大步数防死循环、检测重复工具调用逼模型停下、工具失败时把错误信息回灌 [react#0]。这些约束通常正由外层 Workflow 来强制。\n\n一句话总结：**Workflow 负责「必须确定」的部分，Agent 负责「事先说不清」的部分，检索/工具作为两者共享的能力接口。**",
+        "answer": "## 结论：以 Workflow 为骨架，按需在个别节点内嵌 Agent\n\n文献里给出的落地原则是**「外层 Workflow 保证超时、权限和日志，内层个别节点交给 Agent」**，并特别提醒「不要为了多 Agent 而多 Agent」[workflow_agent#0]。\n\n### 1. 先分清三层概念，再谈混用\n- **Tool**：一次有明确输入输出的能力，例如 search_docs。\n- **Workflow**：步骤由代码写死（如「先检索再生成再校验引用」），延迟和分支可预期。\n- **Agent**：下一步由模型选择，适合分支事先说不清的任务。[workflow_agent#0]\n\n判据是：**问题类型稳定、步骤可穷举时，优先用固定链**，更稳、更便宜、也好评测[workflow_agent#1]。\n\n### 2. 混用的两种典型形态\n\n**（a）固定骨架 + 局部 Agent 节点**\nLangGraph 一类图状态机把节点写成「读 state、返回局部更新」，边与条件边由代码决定下一跳，适合表达固定三节点 `search → generate → check_citation`。但要注意：**「若节点内部仍让模型自由选工具，那只是把 Agent 嵌进了 Workflow」**——它不是自动更好的 Agent。选框架前先画清「哪些边必须写死」[workflow_agent#2]。\n\n**（b）外层路由 + 分支流水线**\n最外层加一个轻量路由器：闲聊直出、算术走计算器、文献题进 RAG/Agent。路由可以是规则、小分类模型或一次短提示，但**应可测**。没有路由时，固定「必检索」Workflow 会在闲聊题上表现差，而这「不是生成模型单独的问题」[workflow_agent#3]。对应地，算术与闲聊若强行进「必检索」Workflow 会引入误检索，此时更适合 Agent 或前置路由[workflow_agent#1]。\n\n### 3. 配套的边界与治理\n- **副作用/HITL**：删除、发送、付款等工具需权限与人工确认；若将来加「写入笔记库」类工具，应单独鉴权，并在 Workflow 外层做审计日志，而不是交给模型自由连点。[workflow_agent#2][workflow_agent#3]\n- **记忆与会话**：外层 Workflow 可以规定「会话超过 N 轮必须摘要或清空工具轨迹，只保留用户最终问题与最新检索结果」，这样延迟更可预期、也便于计费；同时评测与 HTTP 服务都应按请求/按题新建记忆，避免串话[memory_context#1][workflow_agent#3]。\n- **可观测性**：一次请求建议记录 request_id/trace_id、选用的流水线（Workflow 或 Agent）、步数、工具列表、延迟、停止原因、是否拒答[workflow_agent#3]。\n\n### 4. 怎么证明混用有效\n比较 Workflow 与 Agent 时，应**固定同一批问题、同一检索后端与同一生成模型**，报告成功率、平均步数、延迟、token（真实或标明估算）和错误类型，而不是只比框架名词；小语料上两边成功率都可能打满，此时延迟与步数更能说明取舍[workflow_agent#1][workflow_agent#2]。扩库后的 Recall 数字应重跑再写，不要沿用饱和指标[workflow_agent#5]。\n\n**一句话**：把必须写死的边（检索、校验、权限、审计、路由）留在 Workflow 里，把分支事先说不清的节点（如需要多步自主决策的子任务）交给 Agent，并保证两者都在可观测、可评测的同一套指标下对比。",
         "steps": 2,
         "tools": [
           "search_docs",
@@ -194,15 +195,23 @@
         "citation_ids": [
           "workflow_agent#0",
           "workflow_agent#0",
-          "rag#0",
-          "rag#0",
           "workflow_agent#1",
-          "react#0"
+          "workflow_agent#2",
+          "workflow_agent#3",
+          "workflow_agent#1",
+          "workflow_agent#2",
+          "workflow_agent#3",
+          "memory_context#1",
+          "workflow_agent#3",
+          "workflow_agent#3",
+          "workflow_agent#1",
+          "workflow_agent#2",
+          "workflow_agent#5"
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 9577.06,
-        "tokens_est": 621,
+        "latency_ms": 13596.0,
+        "tokens_est": 794,
         "tool_selection_ok": true,
         "success": true
       },
@@ -210,26 +219,26 @@
         "id": "mcp_1",
         "type": "proper_noun",
         "question": "MCP 和 A2A 的差别是什么？请引用。",
-        "answer": "## 检索结果对比\n\n本地文献里对这两者的区分只有一段简短说明，核心就是**连接方向不同**：\n\n| 协议 | 连接对象 | 方向 |\n|---|---|---|\n| MCP（Model Context Protocol） | Agent ↔ 工具 | 垂直方向（Agent 与工具之间的标准接口） |\n| A2A | Agent ↔ Agent | 水平方向（Agent 与 Agent 之间的通信） |\n\n出处：[workflow_agent#0]、[workflow_agent#1]\n\n同一段还顺带澄清了一个容易混淆的第三项：**Skills 是可复用的能力说明，不是传输协议** [workflow_agent#1]。也就是说 MCP / A2A 属于通信协议层，Skills 属于能力描述层，不在同一维度。\n\n## 需要说明的检索局限\n\n我只能确认上面这一句直接对比。文献中**没有**展开 A2A 的具体机制（如任务委派、能力发现/Agent Card、流式响应等），也没有谈两者的认证、传输绑定或互操作细节。所以：\n\n- 「差别是垂直 vs 水平、工具接口 vs Agent 间通信」——有文献支持 [workflow_agent#0]。\n- 更细的协议设计差异——**本地文献里查不到，不便凭印象补充**。\n\n一个相关但不完全等同的旁证：文献强调「不要为了多 Agent 而多 Agent」，落地上常用「外层 Workflow 保证超时、权限和日志，内层个别节点交给 Agent」[workflow_agent#0]，这暗示多 Agent 通信（A2A 的场景）通常是在编排层被管控的，而工具接入（MCP 的场景）是单个 Agent 的能力扩展。不过这只是我基于该段的推论，不是文献原话。",
-        "steps": 3,
+        "answer": "## MCP 与 A2A 的差别\n\n根据文献库中的资料，两者的核心区别在于**通信的方向/对象不同**：\n\n- **MCP（Model Context Protocol）**：是 **Agent 与工具之间** 的标准接口，属于**垂直方向**的通信。[workflow_agent#0]\n- **A2A**：是 **Agent 与 Agent 之间** 的通信，属于**水平方向**。[workflow_agent#0]\n\n同一段落还把第三个概念单独区分开：**Skills** 是「可复用的能力说明，不是传输协议」[workflow_agent#1]，以免把它和上面两种协议混为一谈。\n\n### 一点补充说明\n文献库中关于协议的部分只有这两句并列的定位描述（[workflow_agent#0]、[workflow_agent#1]），**并没有**进一步说明 A2A 的具体机制（例如能力宣告、任务生命周期、消息格式等细节）。所以如果你需要这些更细的对比，我在这批文献里检索不到，不能替你补充——建议另找 A2A 的原始规范文档。\n\n另外，该章节的整体语境是讲「Workflow vs Agent 的选型」：Tool / Workflow / Agent 三者的区分在于「步骤谁来定」（写死的代码 vs 模型自主选择）[workflow_agent#0]，MCP 与 A2A 的定位只是这一节里的一小部分。\n\n**一句话总结**：MCP 管「Agent 怎么调工具」（垂直），A2A 管「Agent 之间怎么对话」（水平）[workflow_agent#0]。",
+        "steps": 2,
         "tools": [
           "search_docs",
-          "search_docs",
-          "search_docs",
-          "read_chunk"
+          "search_docs"
         ],
         "stopped_reason": "final",
         "citation_ids": [
           "workflow_agent#0",
+          "workflow_agent#0",
           "workflow_agent#1",
+          "workflow_agent#0",
           "workflow_agent#1",
           "workflow_agent#0",
           "workflow_agent#0"
         ],
         "has_valid_citation": true,
         "refused": true,
-        "latency_ms": 11953.04,
-        "tokens_est": 386,
+        "latency_ms": 11610.56,
+        "tokens_est": 351,
         "tool_selection_ok": true,
         "success": true
       },
@@ -237,7 +246,7 @@
         "id": "multi_1",
         "type": "multi",
         "question": "先说明 ReAct 三个字母含义，再说明工程上防止死循环要做哪三件事。请引用。",
-        "answer": "**ReAct 三个字母的含义** [react#0]\n\nReAct（Reasoning and Acting，Yao et al., 2022）把推理与行动交错进行，三个字母分别对应循环中的三类成分：\n\n- **R — Reasoning（Thought）**：模型用自然语言写下当前判断。\n- **A — Acting（Action）**：选择一个工具并给出参数。\n- **O — Observation**：环境或工具返回的结果，进入下一步 Thought。\n\n循环直到模型给出最终答案，或达到步数上限 [react#0]。\n\n（论文标题写作 \"Reasoning and Acting\"，因此三字母在原文语境里也常被展开为 Reasoning、Acting、Observation 三段式轨迹。）\n\n**工程上防止死循环必做的三件事** [react#1]\n\n1. **最大步数**，防止死循环。\n2. **检测重复的工具调用**，逼模型停下来。\n3. **工具失败时把错误当 Observation 回传**，而不是在代码里静默吞掉。\n\n补充背景：纯 Chain-of-Thought 不能获取新信息、也改不了外部状态；纯工具调用缺少中间推理，容易选错工具。ReAct 用 Observation 纠正 Thought，从而减少幻觉并让轨迹可检查 [react#0]。\n\n引用来源：[react#0]、[react#1]。",
+        "answer": "## 一、ReAct 三个字母/三个环节的含义\n\n按文献 [react#0]，ReAct 出自 Yao et al., 2022，本质是把**推理**与**行动**交错进行。它拆成三个环节：\n\n| 环节 | 对应 | 含义 |\n|---|---|---|\n| **Reasoning（Thought）** | Re- | 模型用自然语言写下当前判断 |\n| **Acting（Action）** | -Act | 选择一个工具并给出参数 |\n| **Observation** | 循环的第三要素 | 环境或工具返回的结果，进入下一步 Thought |\n\n其中 \"Re\" 取自 **Reasoning**，\"Act\" 取自 **Acting**；循环直到模型给出最终答案，或达到步数上限 [react#0]。\n\n现代实现里，Action 常表现为模型返回的 `tool_call`（工具名 + JSON 参数），Observation 则是本地执行工具后的返回文本，以 tool 角色消息回灌 [react#1]。\n\n## 二、工程上必做的三件事\n\n文献原文（[react#0] / [react#1]）明确列为：\n\n1. **最大步数（max_steps）**，防止死循环 [react#1]。\n2. **检测重复的工具调用**，逼模型停下来 [react#1]。具体做法是对「工具名 + 参数」计数，超过阈值则停止或强制要求给出最终答案，防止模型在同一个 ERROR 上死磕 [agent_runtime_deep#0]。\n3. **工具失败时把错误当 Observation 回传**，而不是在代码里静默吞掉 [react#1]。错误 Observation 应作为错误摘要返回，让模型改参数或换策略；不能静默失败后假装成功，同时要**配合重复调用检测**，避免模型对同一坏调用死循环 [prompt_and_tools#1]。\n\n补充一点与死循环直接相关的收尾规范：除模型主动给出最终答案外，常见停止原因还包括达到 max_steps、触发重复调用熔断、引用门禁失败且重试耗尽、用户输入被安全规则拦截；收尾时应写清 `stopped_reason`，便于对比不同策略，而不是只打印最后一段自然语言 [react#1][react#2]。多跳场景尤其需要 max_steps，否则模型可能无意义地反复搜索 [react#3]。\n\n**引用来源**：`react#0`、`react#1`、`react#2`、`react#3`、`agent_runtime_deep#0`、`prompt_and_tools#1`。",
         "steps": 2,
         "tools": [
           "search_docs",
@@ -249,13 +258,20 @@
           "react#0",
           "react#1",
           "react#0",
-          "react#0",
-          "react#1"
+          "react#1",
+          "react#1",
+          "react#1",
+          "agent_runtime_deep#0",
+          "react#1",
+          "prompt_and_tools#1",
+          "react#1",
+          "react#2",
+          "react#3"
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 7424.72,
-        "tokens_est": 327,
+        "latency_ms": 14553.07,
+        "tokens_est": 575,
         "tool_selection_ok": true,
         "success": true
       },
@@ -263,26 +279,20 @@
         "id": "refuse_printer",
         "type": "refuse",
         "question": "实验室打印机的维修电话是多少？",
-        "answer": "我在本地文献库中检索了「实验室打印机维修电话」以及「设备报修 联系方式 后勤」等相关查询，返回的片段全部是关于 RAG、Agent/Workflow、Transformer 与注意力机制的技术笔记（如 [rag#0]、[workflow_agent#0]、[transformer#0]、[react#0]），没有任何一条包含实验室打印机维修电话或报修联系方式。\n\n所以我无法回答这个问题——文献库里检索不到相关信息，我不能编造一个电话号码。建议你直接查看打印机机身上的标签、实验室的设备台账，或联系实验室管理员/资产后勤部门获取准确号码。",
-        "steps": 4,
+        "answer": "文献库里查不到，我不能编造。\n\n- 我检索了「实验室打印机 维修电话」这类查询，命中的都是实验室问答系统的设计/评测笔记，没有任何关于打印机型号、供应商或维修联系方式的记录。\n- 这类信息正属于笔记中明确划出的「库外信息」范围：应拒答的对象包括「实验室打印机电话、虚构论文、内部薪资」等语料中没有的事实 [agent_eval#0]。\n- 系统设计上也写明了不回答「库外机密（密码、薪资、未收录设备信息）」[lab_qa_design#0]。\n\n**结论：不知道。** 建议直接查看打印机机身上的服务标签、实验室 IT/行政联系人，或设备采购单据；如果这类信息确实需要被问答系统覆盖，可以先把它作为条目录入文献库后再检索。",
+        "steps": 2,
         "tools": [
-          "search_docs",
-          "search_docs",
-          "rewrite_query",
-          "search_docs",
           "search_docs"
         ],
         "stopped_reason": "final",
         "citation_ids": [
-          "rag#0",
-          "workflow_agent#0",
-          "transformer#0",
-          "react#0"
+          "agent_eval#0",
+          "lab_qa_design#0"
         ],
         "has_valid_citation": true,
         "refused": true,
-        "latency_ms": 14692.61,
-        "tokens_est": 142,
+        "latency_ms": 6851.16,
+        "tokens_est": 162,
         "tool_selection_ok": true,
         "success": true
       },
@@ -290,24 +300,25 @@
         "id": "refuse_author",
         "type": "refuse",
         "question": "张三 2024 年那篇关于火星农业的论文结论是什么？",
-        "answer": "抱歉，我查不到这篇文献。\n\n我在文献库中用「张三 2024 火星农业 论文 结论」等查询检索，命中的只有与 ReAct、RAG、Transformer、Workflow/Agent 相关的笔记（如 [react#0]、[rag#0]、[transformer#0]、[workflow_agent#0]），没有任何关于「火星农业」或作者「张三」的论文内容。\n\n因此我无法告诉你这篇论文的结论——它可能不在当前文献库中，或作者名/年份有误。建议你确认一下作者姓名、发表年份或标题，或者把这篇论文加入文献库后我再帮你查。按规则，没有检索命中时我不能编造文献内容。",
+        "answer": "库里没有检索到「张三 2024 年火星农业」这篇论文的任何内容。\n\n我做了多轮检索（原问题、改写后的检索词，以及「火星农业／火星种植／结论」等关键词），返回的片段全部是本地实验室笔记类内容，涉及 ReAct、RAG 检索与评测、引用门禁与拒答、Workflow / memory 隔离、提示注入等主题，没有任何关于火星农业或张三 2024 年论文的片段，例如 [react#0]、[lab_qa_design#0]、[citation_refuse#1]、[workflow_agent#3] 等均与火星农业无关。\n\n因此，按规则我不能编造该论文的结论：**我无法回答这个问题，本库中没有相关文献**。如果你能提供论文标题、期刊或 DOI，我可以再检索一次；或者如果它确实应该入库，可能属于尚未收录（扩库）的情况。",
         "steps": 4,
         "tools": [
           "search_docs",
           "rewrite_query",
+          "search_docs",
           "search_docs"
         ],
         "stopped_reason": "final",
         "citation_ids": [
           "react#0",
-          "rag#0",
-          "transformer#0",
-          "workflow_agent#0"
+          "lab_qa_design#0",
+          "citation_refuse#1",
+          "workflow_agent#3"
         ],
         "has_valid_citation": true,
         "refused": true,
-        "latency_ms": 10611.21,
-        "tokens_est": 152,
+        "latency_ms": 18178.14,
+        "tokens_est": 191,
         "tool_selection_ok": true,
         "success": true
       }
@@ -317,7 +328,7 @@
         "id": "react_1",
         "type": "proper_noun",
         "question": "ReAct 里三个字母分别代表什么？请引用文献片段。",
-        "answer": "根据检索片段，ReAct 的“三个字母”（三个环节/要素）分别是：\n\n1. **Reasoning（Thought）**：模型用自然语言写下当前判断。\n2. **Acting（Action）**：选择一个工具并给出参数。\n3. **Observation**：环境或工具返回的结果，进入下一步 Thought。\n\n它们交错循环，直到模型给出最终答案或达到步数上限 [react#0]。",
+        "answer": "ReAct 的三个字母分别代表：\n\n- **R = Reasoning（Thought）**：模型用自然语言写下当前判断。\n- **A = Acting（Action）**：选择一个工具并给出参数。\n- **O = Observation**：环境或工具返回的结果，进入下一步 Thought。\n\n循环直到模型给出最终答案，或达到步数上限。[react#0]",
         "steps": 2,
         "tools": [
           "search_docs"
@@ -328,13 +339,13 @@
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 7474.24,
-        "tokens_est": 937,
+        "latency_ms": 5464.65,
+        "tokens_est": 929,
         "hit_ids": [
           "react#0",
-          "transformer#0",
-          "rag#0",
-          "workflow_agent#0"
+          "react#6",
+          "react#3",
+          "lab_qa_design#0"
         ],
         "tool_selection_ok": true,
         "success": true
@@ -343,29 +354,24 @@
         "id": "react_2",
         "type": "factual",
         "question": "ReAct 相比纯 Chain-of-Thought 解决了什么问题？请引用。",
-        "answer": "根据检索片段 [react#0]，ReAct 相比纯 Chain-of-Thought 主要解决了以下问题：\n\n- **纯 Chain-of-Thought 不能获取新信息，也改不了外部状态。** CoT 只是在模型内部用自然语言推理，没有与外部环境交互的通道。[react#0]\n- **ReAct 通过交错进行 Reasoning（Thought）和 Acting（Action）引入外部信息**：模型写下当前判断，选择工具并给出参数，得到 Observation（环境或工具返回结果），再进入下一步 Thought，循环直到给出最终答案或达到步数上限。[react#0]\n- **用 Observation 纠正 Thought**，从而减少幻觉，并让整个轨迹可检查。[react#0]\n- 片段还顺带对比了另一种极端：纯工具调用缺少中间推理，容易选错工具。[react#0]\n\n此外，[react#0] 指出工程上必做三件事：设置最大步数防止死循环、检测重复的工具调用逼模型停下来、工具失败时把错误（片段在此处被截断，未给出完整做法）。",
+        "answer": "ReAct 相比纯 Chain-of-Thought，主要解决了两个问题：纯 Chain-of-Thought **不能获取新信息**，也**改不了外部状态**；而 ReAct 通过交错进行推理和行动，用 Observation 纠正 Thought，从而减少幻觉，并让轨迹可检查。[react#0]",
         "steps": 2,
         "tools": [
           "search_docs"
         ],
         "stopped_reason": "final",
         "citation_ids": [
-          "react#0",
-          "react#0",
-          "react#0",
-          "react#0",
-          "react#0",
           "react#0"
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 4682.14,
-        "tokens_est": 963,
+        "latency_ms": 5853.71,
+        "tokens_est": 917,
         "hit_ids": [
           "react#0",
-          "transformer#0",
-          "rag#0",
-          "workflow_agent#1"
+          "react#3",
+          "react#4",
+          "react#6"
         ],
         "tool_selection_ok": true,
         "success": true
@@ -374,26 +380,24 @@
         "id": "rag_1",
         "type": "factual",
         "question": "传统 RAG 为什么还不算 Agent？请引用。",
-        "answer": "传统 RAG 还不算 Agent，因为它的流程是**固定流水线**：切分 → 向量化 → 取 top-k → 一次性生成，控制流写在代码里，而不是由模型决定下一步。[rag#0]\n\n换句话说，它是“增强型问答”，检索永远先发生；而 Agent 的关键是下一步由模型选择，例如决定现在要不要搜、搜什么、要不要改写 query 再搜、要不要读某个 chunk。[rag#0] 这也符合 Workflow 与 Agent 的区别：Workflow 的步骤由代码写死，Agent 的下一步由模型选择。[workflow_agent#0]",
+        "answer": "传统 RAG 不算 Agent，因为它是**固定流水线**：切分 → 向量化 → 取 top-k → 一次性生成，**控制流在代码里**，本质是增强型问答；而 Agentic RAG 才由模型决定“现在要不要搜、搜什么、要不要改写 query 再搜、要不要读某个 chunk”，检索是工具，而不是永远先搜再答。[rag#0]",
         "steps": 2,
         "tools": [
           "search_docs"
         ],
         "stopped_reason": "final",
         "citation_ids": [
-          "rag#0",
-          "rag#0",
-          "workflow_agent#0"
+          "rag#0"
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 3769.46,
-        "tokens_est": 854,
+        "latency_ms": 6854.6,
+        "tokens_est": 926,
         "hit_ids": [
           "rag#0",
-          "workflow_agent#1",
-          "workflow_agent#0",
-          "react#0"
+          "embedding_retrieval#4",
+          "agent_eval#2",
+          "transformer#2"
         ],
         "tool_selection_ok": true,
         "success": true
@@ -402,7 +406,7 @@
         "id": "rag_2",
         "type": "factual",
         "question": "Agentic RAG 和传统 RAG 的关键差别是什么？请引用。",
-        "answer": "关键差别在**控制流由谁决定**：\n\n- 传统 RAG 是固定流水线：切分 → 向量化 → 取 top-k → 一次性生成，控制流写在代码里，属于“增强型问答”，还不是 Agent [rag#0]。\n- Agentic RAG 则由模型决定：现在要不要搜、搜什么、要不要改写 query 再搜、要不要读某个 chunk；检索成为工具，而不是“永远先搜再答” [rag#0]。\n\n因此，Agentic RAG 更适合“问题是否需要检索并不确定”或“需要多跳（先搜 A 再根据 A 搜 B）”的场景 [rag#0]。",
+        "answer": "关键差别在控制流由谁决定：\n\n- **传统 RAG** 是固定流水线：切分 → 向量化 → 取 top-k → 一次性生成，控制流在代码里，本质上还是增强型问答，还不是 Agent [rag#0]。\n- **Agentic RAG** 则由模型决定：现在要不要搜、搜什么、要不要改写 query 再搜、要不要读某个 chunk；检索变成一种工具，而不是永远先搜再答 [rag#0]。\n\n因此，传统 RAG 的检索步骤是预先固定好的；Agentic RAG 的检索时机、检索动作和后续是否继续检索，都由模型根据问题动态决定，尤其适合“不确定是否需要检索”或需要多跳检索的问题 [rag#0]。",
         "steps": 2,
         "tools": [
           "search_docs"
@@ -415,13 +419,13 @@
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 3740.33,
-        "tokens_est": 857,
+        "latency_ms": 6637.25,
+        "tokens_est": 998,
         "hit_ids": [
           "rag#0",
-          "workflow_agent#1",
-          "workflow_agent#0",
-          "transformer#0"
+          "embedding_retrieval#4",
+          "agent_eval#3",
+          "memory_context#1"
         ],
         "tool_selection_ok": true,
         "success": true
@@ -430,24 +434,25 @@
         "id": "attn_1",
         "type": "proper_noun",
         "question": "为什么 Attention 里要点积除以 sqrt(d_k)？请引用。",
-        "answer": "根据检索片段，缩放点积注意力中要把 Query 与 Key 的点积除以 sqrt(d_k)，是为了防止点积过大导致 softmax 过尖 [transformer#0]。",
+        "answer": "Attention 里要把 Query 与 Key 的点积除以 sqrt(d_k)，是为了防止点积过大导致 softmax 过尖 [transformer#0]。也就是说，缩放后的相似度用于生成注意力权重，再乘到 Value 上得到该位置的输出 [transformer#0]。",
         "steps": 2,
         "tools": [
           "search_docs"
         ],
         "stopped_reason": "final",
         "citation_ids": [
+          "transformer#0",
           "transformer#0"
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 3127.32,
-        "tokens_est": 647,
+        "latency_ms": 5204.21,
+        "tokens_est": 781,
         "hit_ids": [
           "transformer#0",
-          "transformer#1",
-          "workflow_agent#1",
-          "rag#0"
+          "transformer#2",
+          "rag#6",
+          "react#5"
         ],
         "tool_selection_ok": true,
         "success": true
@@ -456,7 +461,7 @@
         "id": "wf_1",
         "type": "factual",
         "question": "Workflow 和 Agent 应该如何混用？请引用。",
-        "answer": "Workflow 和 Agent 的混用方式，检索片段给出的落地做法是：**外层用 Workflow 保证超时、权限和日志，内层把个别节点交给 Agent**；同时“不要为了多 Agent 而多 Agent” [workflow_agent#0]。\n\n区分上：Workflow 的步骤由代码写死，延迟和分支可预期；Agent 的下一步由模型选择，适合分支事先说不清的任务 [workflow_agent#0]。因此混用原则可以理解为：确定、可控的流程交给 Workflow，不确定、需要自主决策的局部节点交给 Agent [workflow_agent#0]。\n\n另外，判断某个环节是否真的适合用 Agent，关键看有没有“行动-观察”闭环和多步自主决策，而不是简单加按关键词触发的插件 [workflow_agent#1]。",
+        "answer": "Workflow 和 Agent 的混用可以理解为：**外层用 Workflow 管住流程与边界，内层只在必要节点交给 Agent**。\n\n- 常用混合方式是：外层 Workflow 保证超时、权限和日志，内层个别节点交给 Agent；不要为了多 Agent 而多 Agent [workflow_agent#0]。\n- 混用前要先画清楚哪些边必须写死。图状态机适合表达固定节点，例如 search → generate → check_citation；如果节点内部仍让模型自由选工具，那只是把 Agent 嵌进了 Workflow [workflow_agent#2]。\n- 最外层还可以加轻量路由器：闲聊直出、算术走计算器、文献题进 RAG/Agent。没有路由时，固定“必检索”Workflow 会在闲聊题上表现差 [workflow_agent#3]。\n- 问题类型稳定、步骤可穷举时，用固定链更稳、更便宜、也好评测；算术与闲聊若强行进“必检索”Workflow，会引入误检索，这时更适合 Agent 或前置路由 [workflow_agent#1]。\n- 涉及副作用时仍应由 Workflow 外层管控：删除、发送、付款等工具需要权限与人工确认；若将来加“写入笔记库”类工具，应单独鉴权，并在 Workflow 外层做审计日志，而不是交给模型自由连点 [workflow_agent#2][workflow_agent#3]。\n\n因此，混用原则是：**外层 Workflow 负责超时、权限、日志、路由和固定步骤；内层只在分支事先说不清、需要自主决策的节点使用 Agent，并且固定的边优先写死** [workflow_agent#0][workflow_agent#2]。",
         "steps": 2,
         "tools": [
           "search_docs"
@@ -464,19 +469,23 @@
         "stopped_reason": "final",
         "citation_ids": [
           "workflow_agent#0",
+          "workflow_agent#2",
+          "workflow_agent#3",
+          "workflow_agent#1",
+          "workflow_agent#2",
+          "workflow_agent#3",
           "workflow_agent#0",
-          "workflow_agent#0",
-          "workflow_agent#1"
+          "workflow_agent#2"
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 5880.48,
-        "tokens_est": 905,
+        "latency_ms": 13333.8,
+        "tokens_est": 1226,
         "hit_ids": [
-          "workflow_agent#0",
+          "workflow_agent#2",
           "workflow_agent#1",
-          "rag#0",
-          "react#0"
+          "workflow_agent#0",
+          "workflow_agent#3"
         ],
         "tool_selection_ok": true,
         "success": true
@@ -485,7 +494,7 @@
         "id": "mcp_1",
         "type": "proper_noun",
         "question": "MCP 和 A2A 的差别是什么？请引用。",
-        "answer": "MCP 和 A2A 的差别在于通信方向不同：\n\n- **MCP（Model Context Protocol）**：是 Agent 与工具之间的标准接口，属于**垂直方向** [workflow_agent#0]。\n- **A2A**：是 Agent 与 Agent 之间的通信，属于**水平方向** [workflow_agent#0]。\n\n简单说，MCP 解决 Agent 怎么调用工具，A2A 解决 Agent 之间怎么互相通信。",
+        "answer": "MCP 是 **Agent 与工具之间**的标准接口，属于**垂直方向**；A2A 是 **Agent 与 Agent 之间**的通信，属于**水平方向**。[workflow_agent#0][workflow_agent#1]",
         "steps": 2,
         "tools": [
           "search_docs"
@@ -493,17 +502,17 @@
         "stopped_reason": "final",
         "citation_ids": [
           "workflow_agent#0",
-          "workflow_agent#0"
+          "workflow_agent#1"
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 3366.14,
-        "tokens_est": 714,
+        "latency_ms": 6050.8,
+        "tokens_est": 867,
         "hit_ids": [
           "workflow_agent#0",
           "workflow_agent#1",
-          "transformer#0",
-          "transformer#1"
+          "citation_refuse#3",
+          "transformer#0"
         ],
         "tool_selection_ok": true,
         "success": true
@@ -512,7 +521,7 @@
         "id": "multi_1",
         "type": "multi",
         "question": "先说明 ReAct 三个字母含义，再说明工程上防止死循环要做哪三件事。请引用。",
-        "answer": "ReAct 三个字母/环节的含义是：\n\n- Reasoning（Thought）：模型用自然语言写下当前判断。\n- Acting（Action）：选择一个工具并给出参数。\n- Observation：环境或工具返回的结果，进入下一步 Thought。[react#0]\n\n工程上防止死循环要做三件事：\n\n1. 设置最大步数，防止死循环。\n2. 检测重复的工具调用，逼模型停下来。\n3. 工具失败时把错误当 Observation 回传，而不是在代码里静默吞掉。[react#1]",
+        "answer": "ReAct 三个字母的含义：\n\n- **Reasoning（Thought）**：模型用自然语言写下当前判断 [react#0]。\n- **Acting（Action）**：选择一个工具并给出参数 [react#0]。\n- **Observation**：环境或工具返回的结果，进入下一步 Thought [react#0]。\n\n工程上必做的三件事：\n\n1. **设置最大步数**，防止死循环 [react#0]。\n2. **检测重复的工具调用**，逼模型停下来 [react#0][react#1]。\n3. **工具失败时把错误当 Observation 回传**，而不是在代码里静默吞掉 [react#0][react#1]。\n\n另外，常见停止原因也包括达到 `max_steps`、触发重复调用熔断等 [react#2]。",
         "steps": 2,
         "tools": [
           "search_docs"
@@ -520,17 +529,24 @@
         "stopped_reason": "final",
         "citation_ids": [
           "react#0",
-          "react#1"
+          "react#0",
+          "react#0",
+          "react#0",
+          "react#0",
+          "react#1",
+          "react#0",
+          "react#1",
+          "react#2"
         ],
         "has_valid_citation": true,
         "refused": false,
-        "latency_ms": 4291.09,
-        "tokens_est": 703,
+        "latency_ms": 7796.96,
+        "tokens_est": 1023,
         "hit_ids": [
           "react#0",
           "react#1",
-          "transformer#0",
-          "workflow_agent#1"
+          "react#3",
+          "react#2"
         ],
         "tool_selection_ok": true,
         "success": true
@@ -539,35 +555,34 @@
         "id": "refuse_printer",
         "type": "refuse",
         "question": "实验室打印机的维修电话是多少？",
-        "answer": "不知道。给定的检索片段只涉及 ReAct 推理与行动循环 [react#0]、Transformer 与注意力机制 [transformer#0]、以及 Workflow/Agent/MCP 的区分 [workflow_agent#0]，其中没有任何关于实验室打印机维修电话的信息，因此我无法回答这个问题。",
+        "answer": "不知道。检索片段中没有实验室打印机的维修电话；这类语料中不存在的事实应在检索后明确拒答，而不是编造答案 [agent_eval#0]。该问答系统也不回答库外机密或未收录的实验室设备信息 [lab_qa_design#0]。",
         "steps": 2,
         "tools": [
           "search_docs"
         ],
         "stopped_reason": "final",
         "citation_ids": [
-          "react#0",
-          "transformer#0",
-          "workflow_agent#0"
+          "agent_eval#0",
+          "lab_qa_design#0"
         ],
         "has_valid_citation": true,
-        "refused": true,
-        "latency_ms": 4419.08,
-        "tokens_est": 768,
+        "refused": false,
+        "latency_ms": 5307.07,
+        "tokens_est": 893,
         "hit_ids": [
-          "react#0",
-          "react#1",
-          "transformer#0",
-          "workflow_agent#0"
+          "agent_eval#0",
+          "lab_qa_design#0",
+          "agent_eval#3",
+          "rag#3"
         ],
         "tool_selection_ok": true,
-        "success": true
+        "success": false
       },
       {
         "id": "refuse_author",
         "type": "refuse",
         "question": "张三 2024 年那篇关于火星农业的论文结论是什么？",
-        "answer": "不知道。给定的检索片段里没有任何关于“张三 2024 年火星农业论文”的内容，因此无法回答其结论。",
+        "answer": "不知道。现有检索片段中没有关于“张三 2024 年火星农业论文”的任何信息，无法回答其结论。",
         "steps": 2,
         "tools": [
           "search_docs"
@@ -576,13 +591,13 @@
         "citation_ids": [],
         "has_valid_citation": false,
         "refused": true,
-        "latency_ms": 4200.45,
-        "tokens_est": 865,
+        "latency_ms": 5130.49,
+        "tokens_est": 872,
         "hit_ids": [
           "react#0",
-          "rag#0",
-          "workflow_agent#0",
-          "transformer#0"
+          "citation_refuse#1",
+          "lab_qa_design#2",
+          "workflow_agent#3"
         ],
         "tool_selection_ok": true,
         "success": true

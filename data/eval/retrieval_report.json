@@ -6,45 +6,45 @@
     "lexical": {
       "n": 22,
       "mode": "lexical",
-      "recall@1": 0.6818181818181818,
-      "recall@3": 0.75,
-      "recall@5": 0.75,
-      "mrr": 0.8181818181818182,
-      "avg_latency_ms": 1.0172863621846773,
-      "fail_recall@3": 4,
+      "recall@1": 0.4318181818181818,
+      "recall@3": 0.5681818181818182,
+      "recall@5": 0.5681818181818182,
+      "mrr": 0.5606060606060607,
+      "avg_latency_ms": 2.540013635139489,
+      "fail_recall@3": 9,
       "reranker": null
     },
     "vector": {
       "n": 22,
       "mode": "vector",
-      "recall@1": 0.7727272727272727,
-      "recall@3": 1.0,
-      "recall@5": 1.0,
-      "mrr": 0.9469696969696969,
-      "avg_latency_ms": 119.05810909030896,
-      "fail_recall@3": 0,
+      "recall@1": 0.45454545454545453,
+      "recall@3": 0.6818181818181818,
+      "recall@5": 0.7272727272727273,
+      "mrr": 0.6454545454545454,
+      "avg_latency_ms": 78.22547272702319,
+      "fail_recall@3": 6,
       "reranker": null
     },
     "hybrid": {
       "n": 22,
       "mode": "hybrid",
-      "recall@1": 0.8636363636363636,
-      "recall@3": 1.0,
-      "recall@5": 1.0,
-      "mrr": 1.0,
-      "avg_latency_ms": 10.499545454380991,
-      "fail_recall@3": 0,
+      "recall@1": 0.5227272727272727,
+      "recall@3": 0.75,
+      "recall@5": 0.75,
+      "mrr": 0.6818181818181818,
+      "avg_latency_ms": 13.151449999978384,
+      "fail_recall@3": 5,
       "reranker": null
     },
     "hybrid_rerank": {
       "n": 22,
       "mode": "hybrid_rerank",
-      "recall@1": 0.8636363636363636,
-      "recall@3": 1.0,
-      "recall@5": 1.0,
-      "mrr": 1.0,
-      "avg_latency_ms": 2261.483513637028,
-      "fail_recall@3": 0,
+      "recall@1": 0.7272727272727273,
+      "recall@3": 0.9545454545454546,
+      "recall@5": 0.9545454545454546,
+      "mrr": 0.9090909090909091,
+      "avg_latency_ms": 4225.746081818546,
+      "fail_recall@3": 1,
       "reranker": "cross_encoder"
     }
   },
@@ -52,27 +52,27 @@
     "confusable": {
       "lexical": {
         "n": 6,
-        "recall@1": 0.9166666666666666,
-        "recall@3": 1.0,
-        "recall@5": 1.0,
-        "mrr": 1.0,
-        "avg_latency_ms": 0.27
+        "recall@1": 0.5833333333333334,
+        "recall@3": 0.6666666666666666,
+        "recall@5": 0.6666666666666666,
+        "mrr": 0.6666666666666666,
+        "avg_latency_ms": 2.495
       },
       "vector": {
         "n": 6,
-        "recall@1": 0.9166666666666666,
-        "recall@3": 1.0,
-        "recall@5": 1.0,
-        "mrr": 1.0,
-        "avg_latency_ms": 11.318333333333333
+        "recall@1": 0.75,
+        "recall@3": 0.75,
+        "recall@5": 0.9166666666666666,
+        "mrr": 0.8666666666666667,
+        "avg_latency_ms": 10.43
       },
       "hybrid": {
         "n": 6,
-        "recall@1": 0.9166666666666666,
-        "recall@3": 1.0,
-        "recall@5": 1.0,
-        "mrr": 1.0,
-        "avg_latency_ms": 10.961666666666666
+        "recall@1": 0.5833333333333334,
+        "recall@3": 0.6666666666666666,
+        "recall@5": 0.6666666666666666,
+        "mrr": 0.6666666666666666,
+        "avg_latency_ms": 13.520000000000001
       },
       "hybrid_rerank": {
         "n": 6,
@@ -80,33 +80,33 @@
         "recall@3": 1.0,
         "recall@5": 1.0,
         "mrr": 1.0,
-        "avg_latency_ms": 2407.096666666667
+        "avg_latency_ms": 4462.428333333333
       }
     },
     "proper_noun": {
       "lexical": {
         "n": 5,
-        "recall@1": 0.7,
-        "recall@3": 0.8,
-        "recall@5": 0.8,
-        "mrr": 1.0,
-        "avg_latency_ms": 3.7400000000000007
+        "recall@1": 0.5,
+        "recall@3": 0.7,
+        "recall@5": 0.7,
+        "mrr": 0.8,
+        "avg_latency_ms": 2.638
       },
       "vector": {
+        "n": 5,
+        "recall@1": 0.2,
+        "recall@3": 0.7,
+        "recall@5": 0.7,
+        "mrr": 0.6,
+        "avg_latency_ms": 310.168
+      },
+      "hybrid": {
         "n": 5,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0,
         "mrr": 0.8666666666666666,
-        "avg_latency_ms": 487.04200000000003
-      },
-      "hybrid": {
-        "n": 5,
-        "recall@1": 0.7,
-        "recall@3": 1.0,
-        "recall@5": 1.0,
-        "mrr": 1.0,
-        "avg_latency_ms": 9.192
+        "avg_latency_ms": 12.129999999999999
       },
       "hybrid_rerank": {
         "n": 5,
@@ -114,80 +114,95 @@
         "recall@3": 1.0,
         "recall@5": 1.0,
         "mrr": 1.0,
-        "avg_latency_ms": 2015.414
+        "avg_latency_ms": 3699.81
       }
     },
     "short": {
       "lexical": {
         "n": 5,
-        "recall@1": 0.8,
-        "recall@3": 0.9,
-        "recall@5": 0.9,
-        "mrr": 1.0,
-        "avg_latency_ms": 0.186
+        "recall@1": 0.5,
+        "recall@3": 0.8,
+        "recall@5": 0.8,
+        "mrr": 0.6666666666666667,
+        "avg_latency_ms": 2.42
       },
       "vector": {
+        "n": 5,
+        "recall@1": 0.5,
+        "recall@3": 0.8,
+        "recall@5": 0.8,
+        "mrr": 0.7,
+        "avg_latency_ms": 8.614
+      },
+      "hybrid": {
+        "n": 5,
+        "recall@1": 0.7,
+        "recall@3": 0.9,
+        "recall@5": 0.9,
+        "mrr": 0.8666666666666666,
+        "avg_latency_ms": 13.112
+      },
+      "hybrid_rerank": {
         "n": 5,
         "recall@1": 0.6,
         "recall@3": 1.0,
         "recall@5": 1.0,
         "mrr": 0.9,
-        "avg_latency_ms": 9.922
-      },
-      "hybrid": {
-        "n": 5,
-        "recall@1": 0.8,
-        "recall@3": 1.0,
-        "recall@5": 1.0,
-        "mrr": 1.0,
-        "avg_latency_ms": 10.462
-      },
-      "hybrid_rerank": {
-        "n": 5,
-        "recall@1": 0.8,
-        "recall@3": 1.0,
-        "recall@5": 1.0,
-        "mrr": 1.0,
-        "avg_latency_ms": 2363.562
+        "avg_latency_ms": 4239.734
       }
     },
     "synonym": {
       "lexical": {
         "n": 6,
-        "recall@1": 0.3333333333333333,
-        "recall@3": 0.3333333333333333,
-        "recall@5": 0.3333333333333333,
-        "mrr": 0.3333333333333333,
-        "avg_latency_ms": 0.18499999999999997
+        "recall@1": 0.16666666666666666,
+        "recall@3": 0.16666666666666666,
+        "recall@5": 0.16666666666666666,
+        "mrr": 0.16666666666666666,
+        "avg_latency_ms": 2.6
       },
       "vector": {
         "n": 6,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0,
-        "mrr": 1.0,
-        "avg_latency_ms": 11.093333333333334
+        "recall@1": 0.3333333333333333,
+        "recall@3": 0.5,
+        "recall@5": 0.5,
+        "mrr": 0.4166666666666667,
+        "avg_latency_ms": 10.745
       },
       "hybrid": {
         "n": 6,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0,
-        "mrr": 1.0,
-        "avg_latency_ms": 11.156666666666666
+        "recall@1": 0.3333333333333333,
+        "recall@3": 0.5,
+        "recall@5": 0.5,
+        "mrr": 0.3888888888888889,
+        "avg_latency_ms": 13.666666666666666
       },
       "hybrid_rerank": {
         "n": 6,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0,
-        "mrr": 1.0,
-        "avg_latency_ms": 2235.86
+        "recall@1": 0.6666666666666666,
+        "recall@3": 0.8333333333333334,
+        "recall@5": 0.8333333333333334,
+        "mrr": 0.75,
+        "avg_latency_ms": 4415.6883333333335
       }
     }
   },
   "failures": {
     "lexical": [
+      {
+        "id": "pn_react",
+        "type": "proper_noun",
+        "query": "ReAct",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#7",
+          "react#6",
+          "react#2",
+          "react#3",
+          "citation_refuse#0"
+        ]
+      },
       {
         "id": "syn_react_loop",
         "type": "synonym",
@@ -196,6 +211,21 @@
           "react#0"
         ],
         "ranked": []
+      },
+      {
+        "id": "syn_rag_pipeline",
+        "type": "synonym",
+        "query": "先切分再向量化再取 top-k 最后生成的流水线叫什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#6",
+          "rag#2",
+          "embedding_retrieval#3",
+          "memory_context#0",
+          "rag#5"
+        ]
       },
       {
         "id": "syn_agentic",
@@ -223,11 +253,240 @@
           "rag#0"
         ],
         "ranked": []
+      },
+      {
+        "id": "short_max_steps",
+        "type": "short",
+        "query": "ReAct 怎么防止死循环",
+        "relevant_chunk_ids": [
+          "react#0",
+          "react#1"
+        ],
+        "ranked": [
+          "react#7",
+          "react#6",
+          "react#2",
+          "react#3",
+          "citation_refuse#0"
+        ]
+      },
+      {
+        "id": "conf_workflow_agent",
+        "type": "confusable",
+        "query": "步骤写死可预期延迟的是 Workflow 还是 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "memory_context#3",
+          "embedding_retrieval#5",
+          "hybrid_rrf#3",
+          "transformer#6",
+          "citation_refuse#3"
+        ]
+      },
+      {
+        "id": "conf_plugin",
+        "type": "confusable",
+        "query": "聊天机器人加关键词插件算不算真正的 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "memory_context#3",
+          "embedding_retrieval#5",
+          "hybrid_rrf#3",
+          "lab_qa_design#3",
+          "transformer#6"
+        ]
       }
     ],
-    "vector": [],
-    "hybrid": [],
-    "hybrid_rerank": []
+    "vector": [
+      {
+        "id": "pn_yao",
+        "type": "proper_noun",
+        "query": "Yao et al., 2022",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "hybrid_rrf#1",
+          "chunking_ops#0",
+          "retrieval_badcases#0",
+          "embedding_retrieval#4",
+          "memory_context#2"
+        ]
+      },
+      {
+        "id": "syn_agentic",
+        "type": "synonym",
+        "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "lab_qa_design#2",
+          "transformer#4",
+          "memory_context#1",
+          "react#7",
+          "workflow_agent#3"
+        ]
+      },
+      {
+        "id": "syn_memory",
+        "type": "synonym",
+        "query": "跨多次对话持久保存的事实记忆叫什么层",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "memory_context#0",
+          "memory_context#1",
+          "memory_context#3",
+          "retrieval_badcases#1",
+          "chunking_ops#1"
+        ]
+      },
+      {
+        "id": "syn_refuse",
+        "type": "synonym",
+        "query": "检索没命中文献时正确做法是什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#1",
+          "citation_refuse#2",
+          "citation_refuse#3",
+          "citation_refuse#1",
+          "agent_eval#0"
+        ]
+      },
+      {
+        "id": "short_sqrt",
+        "type": "short",
+        "query": "为什么除以 sqrt(d_k)",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "embedding_retrieval#2",
+          "rag#0",
+          "eval_metrics_deep#0",
+          "agent_eval#1",
+          "agent_eval#2"
+        ]
+      },
+      {
+        "id": "conf_workflow_agent",
+        "type": "confusable",
+        "query": "步骤写死可预期延迟的是 Workflow 还是 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "workflow_agent#2",
+          "agent_runtime_deep#0",
+          "workflow_agent#1",
+          "workflow_agent#5",
+          "workflow_agent#0"
+        ]
+      }
+    ],
+    "hybrid": [
+      {
+        "id": "syn_agentic",
+        "type": "synonym",
+        "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "lab_qa_design#2",
+          "transformer#4",
+          "memory_context#1",
+          "react#7",
+          "workflow_agent#3"
+        ]
+      },
+      {
+        "id": "syn_memory",
+        "type": "synonym",
+        "query": "跨多次对话持久保存的事实记忆叫什么层",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "memory_context#0",
+          "memory_context#1",
+          "memory_context#3",
+          "retrieval_badcases#1",
+          "chunking_ops#1"
+        ]
+      },
+      {
+        "id": "syn_refuse",
+        "type": "synonym",
+        "query": "检索没命中文献时正确做法是什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#1",
+          "citation_refuse#2",
+          "citation_refuse#3",
+          "citation_refuse#1",
+          "agent_eval#0"
+        ]
+      },
+      {
+        "id": "conf_workflow_agent",
+        "type": "confusable",
+        "query": "步骤写死可预期延迟的是 Workflow 还是 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "workflow_agent#5",
+          "hybrid_rrf#3",
+          "workflow_agent#2",
+          "memory_context#1",
+          "agent_runtime_deep#0"
+        ]
+      },
+      {
+        "id": "conf_plugin",
+        "type": "confusable",
+        "query": "聊天机器人加关键词插件算不算真正的 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "react#3",
+          "prompt_and_tools#1",
+          "lab_qa_design#3",
+          "llm_api_ops#1",
+          "workflow_agent#2"
+        ]
+      }
+    ],
+    "hybrid_rerank": [
+      {
+        "id": "syn_memory",
+        "type": "synonym",
+        "query": "跨多次对话持久保存的事实记忆叫什么层",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "memory_context#0",
+          "workflow_agent#3",
+          "memory_context#1",
+          "lab_qa_design#0",
+          "agent_runtime_deep#1"
+        ]
+      }
+    ]
   },
   "cases": {
     "lexical": [
@@ -239,13 +498,17 @@
           "react#0"
         ],
         "ranked": [
-          "react#0"
+          "react#7",
+          "react#6",
+          "react#2",
+          "react#3",
+          "citation_refuse#0"
         ],
-        "mrr": 1.0,
-        "latency_ms": 17.67,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.0,
+        "latency_ms": 2.98,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "pn_mcp",
@@ -259,7 +522,7 @@
           "workflow_agent#0"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.33,
+        "latency_ms": 2.83,
         "recall@1": 0.5,
         "recall@3": 0.5,
         "recall@5": 0.5
@@ -273,13 +536,14 @@
           "transformer#1"
         ],
         "ranked": [
+          "transformer#1",
           "transformer#0"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.29,
+        "latency_ms": 2.53,
         "recall@1": 0.5,
-        "recall@3": 0.5,
-        "recall@5": 0.5
+        "recall@3": 1.0,
+        "recall@5": 1.0
       },
       {
         "id": "pn_yao",
@@ -292,7 +556,7 @@
           "react#0"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.22,
+        "latency_ms": 2.5,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -306,11 +570,11 @@
           "workflow_agent#1"
         ],
         "ranked": [
-          "workflow_agent#1",
-          "workflow_agent#0"
+          "workflow_agent#0",
+          "workflow_agent#1"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.19,
+        "latency_ms": 2.35,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -324,7 +588,7 @@
         ],
         "ranked": [],
         "mrr": 0.0,
-        "latency_ms": 0.19,
+        "latency_ms": 2.56,
         "recall@1": 0.0,
         "recall@3": 0.0,
         "recall@5": 0.0
@@ -337,13 +601,17 @@
           "rag#0"
         ],
         "ranked": [
-          "rag#0"
+          "rag#6",
+          "rag#2",
+          "embedding_retrieval#3",
+          "memory_context#0",
+          "rag#5"
         ],
-        "mrr": 1.0,
-        "latency_ms": 0.19,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.0,
+        "latency_ms": 2.72,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "syn_agentic",
@@ -354,7 +622,7 @@
         ],
         "ranked": [],
         "mrr": 0.0,
-        "latency_ms": 0.18,
+        "latency_ms": 2.6,
         "recall@1": 0.0,
         "recall@3": 0.0,
         "recall@5": 0.0
@@ -368,11 +636,13 @@
         ],
         "ranked": [
           "transformer#0",
-          "react#0",
-          "rag#0"
+          "transformer#3",
+          "rag#1",
+          "transformer#4",
+          "react#0"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.19,
+        "latency_ms": 2.64,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -386,7 +656,7 @@
         ],
         "ranked": [],
         "mrr": 0.0,
-        "latency_ms": 0.18,
+        "latency_ms": 2.53,
         "recall@1": 0.0,
         "recall@3": 0.0,
         "recall@5": 0.0
@@ -400,7 +670,7 @@
         ],
         "ranked": [],
         "mrr": 0.0,
-        "latency_ms": 0.18,
+        "latency_ms": 2.55,
         "recall@1": 0.0,
         "recall@3": 0.0,
         "recall@5": 0.0
@@ -413,11 +683,15 @@
           "rag#0"
         ],
         "ranked": [
-          "rag#0"
+          "chunking_ops#3",
+          "chunking_ops#0",
+          "rag#0",
+          "retrieval_badcases#0",
+          "embedding_retrieval#1"
         ],
-        "mrr": 1.0,
-        "latency_ms": 0.19,
-        "recall@1": 1.0,
+        "mrr": 0.3333333333333333,
+        "latency_ms": 2.76,
+        "recall@1": 0.0,
         "recall@3": 1.0,
         "recall@5": 1.0
       },
@@ -434,7 +708,7 @@
           "transformer#0"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.19,
+        "latency_ms": 2.44,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -450,7 +724,7 @@
           "transformer#0"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.19,
+        "latency_ms": 2.3,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -466,7 +740,7 @@
           "workflow_agent#1"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.18,
+        "latency_ms": 2.31,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -480,13 +754,17 @@
           "react#1"
         ],
         "ranked": [
-          "react#0"
+          "react#7",
+          "react#6",
+          "react#2",
+          "react#3",
+          "citation_refuse#0"
         ],
-        "mrr": 1.0,
-        "latency_ms": 0.18,
-        "recall@1": 0.5,
-        "recall@3": 0.5,
-        "recall@5": 0.5
+        "mrr": 0.0,
+        "latency_ms": 2.29,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "conf_rag_vs_agentic",
@@ -497,11 +775,13 @@
         ],
         "ranked": [
           "rag#0",
-          "workflow_agent#1",
-          "workflow_agent#0"
+          "agent_eval#4",
+          "llm_api_ops#3",
+          "chunking_ops#2",
+          "embedding_retrieval#4"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.19,
+        "latency_ms": 2.41,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -514,15 +794,17 @@
           "workflow_agent#0"
         ],
         "ranked": [
-          "workflow_agent#0",
-          "workflow_agent#1",
-          "rag#0"
+          "memory_context#3",
+          "embedding_retrieval#5",
+          "hybrid_rrf#3",
+          "transformer#6",
+          "citation_refuse#3"
         ],
-        "mrr": 1.0,
-        "latency_ms": 0.19,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.0,
+        "latency_ms": 2.7,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "conf_bn_ln",
@@ -535,10 +817,12 @@
         "ranked": [
           "transformer#1",
           "transformer#0",
+          "react#1",
+          "transformer#2",
           "workflow_agent#0"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.27,
+        "latency_ms": 2.43,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -551,15 +835,17 @@
           "workflow_agent#1"
         ],
         "ranked": [
-          "workflow_agent#1",
-          "workflow_agent#0",
-          "rag#0"
+          "memory_context#3",
+          "embedding_retrieval#5",
+          "hybrid_rrf#3",
+          "lab_qa_design#3",
+          "transformer#6"
         ],
-        "mrr": 1.0,
-        "latency_ms": 0.2,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.0,
+        "latency_ms": 2.52,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "conf_cot",
@@ -569,10 +855,14 @@
           "react#0"
         ],
         "ranked": [
-          "react#0"
+          "react#0",
+          "react#7",
+          "react#4",
+          "react#6",
+          "react#1"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.32,
+        "latency_ms": 2.47,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -585,10 +875,14 @@
           "transformer#1"
         ],
         "ranked": [
-          "transformer#1"
+          "transformer#1",
+          "transformer#2",
+          "agent_runtime_deep#2",
+          "transformer#4",
+          "transformer#3"
         ],
         "mrr": 1.0,
-        "latency_ms": 0.45,
+        "latency_ms": 2.44,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -603,15 +897,15 @@
           "react#0"
         ],
         "ranked": [
+          "lab_qa_design#1",
           "react#0",
-          "workflow_agent#0",
-          "rag#0",
-          "transformer#1",
-          "react#1"
+          "react#2",
+          "react#4",
+          "react#3"
         ],
-        "mrr": 1.0,
-        "latency_ms": 2340.75,
-        "recall@1": 1.0,
+        "mrr": 0.5,
+        "latency_ms": 1480.7,
+        "recall@1": 0.0,
         "recall@3": 1.0,
         "recall@5": 1.0
       },
@@ -625,13 +919,461 @@
         ],
         "ranked": [
           "workflow_agent#0",
-          "transformer#1",
           "workflow_agent#1",
-          "rag#0",
-          "react#0"
+          "transformer#1",
+          "agent_eval#1",
+          "transformer#2"
         ],
         "mrr": 1.0,
-        "latency_ms": 45.04,
+        "latency_ms": 34.58,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_layernorm",
+        "type": "proper_noun",
+        "query": "LayerNorm",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "agent_runtime_deep#1",
+          "transformer#0",
+          "rag#0",
+          "rag#2"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 14.16,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_yao",
+        "type": "proper_noun",
+        "query": "Yao et al., 2022",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "hybrid_rrf#1",
+          "chunking_ops#0",
+          "retrieval_badcases#0",
+          "embedding_retrieval#4",
+          "memory_context#2"
+        ],
+        "mrr": 0.0,
+        "latency_ms": 12.27,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
+      },
+      {
+        "id": "pn_a2a",
+        "type": "proper_noun",
+        "query": "A2A",
+        "relevant_chunk_ids": [
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "retrieval_badcases#1",
+          "workflow_agent#1",
+          "agent_eval#2",
+          "embedding_retrieval#1",
+          "llm_api_ops#1"
+        ],
+        "mrr": 0.5,
+        "latency_ms": 9.13,
+        "recall@1": 0.0,
+        "recall@3": 0.5,
+        "recall@5": 0.5
+      },
+      {
+        "id": "syn_react_loop",
+        "type": "synonym",
+        "query": "推理与行动交替的智能体框架叫什么",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "workflow_agent#1",
+          "workflow_agent#2",
+          "agent_eval#3",
+          "transformer#4"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.33,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_rag_pipeline",
+        "type": "synonym",
+        "query": "先切分再向量化再取 top-k 最后生成的流水线叫什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "embedding_retrieval#2",
+          "rag#0",
+          "rag#2",
+          "eval_metrics_deep#0",
+          "embedding_retrieval#1"
+        ],
+        "mrr": 0.5,
+        "latency_ms": 8.83,
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_agentic",
+        "type": "synonym",
+        "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "lab_qa_design#2",
+          "transformer#4",
+          "memory_context#1",
+          "react#7",
+          "workflow_agent#3"
+        ],
+        "mrr": 0.0,
+        "latency_ms": 11.08,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
+      },
+      {
+        "id": "syn_attention",
+        "type": "synonym",
+        "query": "用 Query Key Value 算相似度再加权 Value 的机制",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "transformer#0",
+          "transformer#3",
+          "rag#2",
+          "transformer#2",
+          "rag#3"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.55,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_memory",
+        "type": "synonym",
+        "query": "跨多次对话持久保存的事实记忆叫什么层",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "memory_context#0",
+          "memory_context#1",
+          "memory_context#3",
+          "retrieval_badcases#1",
+          "chunking_ops#1"
+        ],
+        "mrr": 0.0,
+        "latency_ms": 10.79,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
+      },
+      {
+        "id": "syn_refuse",
+        "type": "synonym",
+        "query": "检索没命中文献时正确做法是什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#1",
+          "citation_refuse#2",
+          "citation_refuse#3",
+          "citation_refuse#1",
+          "agent_eval#0"
+        ],
+        "mrr": 0.0,
+        "latency_ms": 12.89,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
+      },
+      {
+        "id": "short_overlap",
+        "type": "short",
+        "query": "overlap 干什么用",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "agent_eval#2",
+          "workflow_agent#2",
+          "react#1",
+          "agent_eval#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 7.05,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_ffn",
+        "type": "short",
+        "query": "FFN 做什么",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "transformer#0",
+          "transformer#2",
+          "embedding_retrieval#2",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.28,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_sqrt",
+        "type": "short",
+        "query": "为什么除以 sqrt(d_k)",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "embedding_retrieval#2",
+          "rag#0",
+          "eval_metrics_deep#0",
+          "agent_eval#1",
+          "agent_eval#2"
+        ],
+        "mrr": 0.0,
+        "latency_ms": 10.74,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
+      },
+      {
+        "id": "short_skills",
+        "type": "short",
+        "query": "Skills 是传输协议吗",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "workflow_agent#2",
+          "workflow_agent#0",
+          "prompt_and_tools#1",
+          "react#2"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 6.5,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_max_steps",
+        "type": "short",
+        "query": "ReAct 怎么防止死循环",
+        "relevant_chunk_ids": [
+          "react#0",
+          "react#1"
+        ],
+        "ranked": [
+          "react#2",
+          "react#1",
+          "react#0",
+          "react#3",
+          "agent_runtime_deep#0"
+        ],
+        "mrr": 0.5,
+        "latency_ms": 8.5,
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_rag_vs_agentic",
+        "type": "confusable",
+        "query": "传统 RAG 和控制流在代码里的关系，它是不是 Agent",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "react#4",
+          "prompt_and_tools#0",
+          "agent_eval#3",
+          "prompt_and_tools#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.06,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_workflow_agent",
+        "type": "confusable",
+        "query": "步骤写死可预期延迟的是 Workflow 还是 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "workflow_agent#2",
+          "agent_runtime_deep#0",
+          "workflow_agent#1",
+          "workflow_agent#5",
+          "workflow_agent#0"
+        ],
+        "mrr": 0.2,
+        "latency_ms": 10.56,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_bn_ln",
+        "type": "confusable",
+        "query": "和 BatchNorm 不同、不依赖 batch 统计的是哪种归一化",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "rag#1",
+          "hybrid_rrf#0",
+          "embedding_retrieval#1",
+          "embedding_retrieval#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.17,
+        "recall@1": 0.5,
+        "recall@3": 0.5,
+        "recall@5": 0.5
+      },
+      {
+        "id": "conf_plugin",
+        "type": "confusable",
+        "query": "聊天机器人加关键词插件算不算真正的 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "agent_eval#0",
+          "workflow_agent#0",
+          "react#3",
+          "prompt_and_tools#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 9.76,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_cot",
+        "type": "confusable",
+        "query": "纯 Chain-of-Thought 相比 ReAct 缺什么能力",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "react#2",
+          "react#4",
+          "react#3",
+          "eval_metrics_deep#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 12.1,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_encoder_decoder",
+        "type": "confusable",
+        "query": "GPT 一类模型主要用 Encoder 还是 Decoder",
+        "relevant_chunk_ids": [
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "transformer#4",
+          "transformer#2",
+          "agent_runtime_deep#2",
+          "transformer#3"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 9.93,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    ],
+    "hybrid": [
+      {
+        "id": "pn_react",
+        "type": "proper_noun",
+        "query": "ReAct",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#2",
+          "react#7",
+          "react#0",
+          "react#3",
+          "lab_qa_design#1"
+        ],
+        "mrr": 0.3333333333333333,
+        "latency_ms": 13.55,
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_mcp",
+        "type": "proper_noun",
+        "query": "MCP 是什么协议",
+        "relevant_chunk_ids": [
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "workflow_agent#1",
+          "transformer#1",
+          "agent_eval#1",
+          "transformer#2"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 13.15,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -647,12 +1389,12 @@
         "ranked": [
           "transformer#1",
           "transformer#0",
+          "agent_runtime_deep#1",
           "rag#0",
-          "workflow_agent#1",
-          "react#1"
+          "rag#2"
         ],
         "mrr": 1.0,
-        "latency_ms": 22.64,
+        "latency_ms": 9.51,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -665,15 +1407,15 @@
           "react#0"
         ],
         "ranked": [
-          "workflow_agent#1",
-          "rag#0",
           "react#0",
-          "transformer#0",
-          "workflow_agent#0"
+          "hybrid_rrf#1",
+          "chunking_ops#0",
+          "retrieval_badcases#0",
+          "embedding_retrieval#4"
         ],
-        "mrr": 0.3333333333333333,
-        "latency_ms": 15.01,
-        "recall@1": 0.0,
+        "mrr": 1.0,
+        "latency_ms": 12.67,
+        "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
       },
@@ -687,10 +1429,10 @@
         ],
         "ranked": [
           "workflow_agent#1",
-          "rag#0",
           "workflow_agent#0",
-          "transformer#0",
-          "transformer#1"
+          "retrieval_badcases#1",
+          "agent_eval#2",
+          "embedding_retrieval#1"
         ],
         "mrr": 1.0,
         "latency_ms": 11.77,
@@ -708,12 +1450,12 @@
         "ranked": [
           "react#0",
           "workflow_agent#1",
-          "workflow_agent#0",
-          "transformer#0",
-          "rag#0"
+          "workflow_agent#2",
+          "agent_eval#3",
+          "transformer#4"
         ],
         "mrr": 1.0,
-        "latency_ms": 13.22,
+        "latency_ms": 11.51,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -726,467 +1468,19 @@
           "rag#0"
         ],
         "ranked": [
+          "rag#2",
+          "embedding_retrieval#2",
           "rag#0",
-          "transformer#0",
-          "react#0",
-          "transformer#1",
-          "react#1"
+          "embedding_retrieval#3",
+          "rag#6"
         ],
-        "mrr": 1.0,
-        "latency_ms": 7.69,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "syn_agentic",
-        "type": "synonym",
-        "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
-        "relevant_chunk_ids": [
-          "rag#0"
-        ],
-        "ranked": [
-          "rag#0",
-          "transformer#0",
-          "react#1",
-          "react#0",
-          "transformer#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 11.94,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "syn_attention",
-        "type": "synonym",
-        "query": "用 Query Key Value 算相似度再加权 Value 的机制",
-        "relevant_chunk_ids": [
-          "transformer#0"
-        ],
-        "ranked": [
-          "transformer#0",
-          "transformer#1",
-          "rag#0",
-          "react#0",
-          "workflow_agent#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 11.85,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "syn_memory",
-        "type": "synonym",
-        "query": "跨多次对话持久保存的事实记忆叫什么层",
-        "relevant_chunk_ids": [
-          "workflow_agent#0"
-        ],
-        "ranked": [
-          "workflow_agent#0",
-          "rag#0",
-          "workflow_agent#1",
-          "transformer#0",
-          "react#0"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 11.99,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "syn_refuse",
-        "type": "synonym",
-        "query": "检索没命中文献时正确做法是什么",
-        "relevant_chunk_ids": [
-          "rag#0"
-        ],
-        "ranked": [
-          "rag#0",
-          "react#1",
-          "react#0",
-          "transformer#1",
-          "transformer#0"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 9.87,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "short_overlap",
-        "type": "short",
-        "query": "overlap 干什么用",
-        "relevant_chunk_ids": [
-          "rag#0"
-        ],
-        "ranked": [
-          "rag#0",
-          "workflow_agent#0",
-          "react#1",
-          "workflow_agent#1",
-          "transformer#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 9.57,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "short_ffn",
-        "type": "short",
-        "query": "FFN 做什么",
-        "relevant_chunk_ids": [
-          "transformer#0",
-          "transformer#1"
-        ],
-        "ranked": [
-          "transformer#1",
-          "react#1",
-          "transformer#0",
-          "rag#0",
-          "react#0"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 9.53,
-        "recall@1": 0.5,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "short_sqrt",
-        "type": "short",
-        "query": "为什么除以 sqrt(d_k)",
-        "relevant_chunk_ids": [
-          "transformer#0"
-        ],
-        "ranked": [
-          "rag#0",
-          "transformer#0",
-          "transformer#1",
-          "react#1",
-          "react#0"
-        ],
-        "mrr": 0.5,
-        "latency_ms": 11.37,
+        "mrr": 0.3333333333333333,
+        "latency_ms": 11.51,
         "recall@1": 0.0,
         "recall@3": 1.0,
         "recall@5": 1.0
       },
       {
-        "id": "short_skills",
-        "type": "short",
-        "query": "Skills 是传输协议吗",
-        "relevant_chunk_ids": [
-          "workflow_agent#1"
-        ],
-        "ranked": [
-          "workflow_agent#1",
-          "workflow_agent#0",
-          "transformer#1",
-          "rag#0",
-          "transformer#0"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 8.58,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "short_max_steps",
-        "type": "short",
-        "query": "ReAct 怎么防止死循环",
-        "relevant_chunk_ids": [
-          "react#0",
-          "react#1"
-        ],
-        "ranked": [
-          "react#0",
-          "react#1",
-          "rag#0",
-          "transformer#0",
-          "transformer#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 10.56,
-        "recall@1": 0.5,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "conf_rag_vs_agentic",
-        "type": "confusable",
-        "query": "传统 RAG 和控制流在代码里的关系，它是不是 Agent",
-        "relevant_chunk_ids": [
-          "rag#0"
-        ],
-        "ranked": [
-          "rag#0",
-          "workflow_agent#1",
-          "transformer#1",
-          "workflow_agent#0",
-          "react#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 12.78,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "conf_workflow_agent",
-        "type": "confusable",
-        "query": "步骤写死可预期延迟的是 Workflow 还是 Agent",
-        "relevant_chunk_ids": [
-          "workflow_agent#0"
-        ],
-        "ranked": [
-          "workflow_agent#0",
-          "react#0",
-          "react#1",
-          "rag#0",
-          "transformer#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 7.96,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "conf_bn_ln",
-        "type": "confusable",
-        "query": "和 BatchNorm 不同、不依赖 batch 统计的是哪种归一化",
-        "relevant_chunk_ids": [
-          "transformer#0",
-          "transformer#1"
-        ],
-        "ranked": [
-          "transformer#1",
-          "transformer#0",
-          "rag#0",
-          "workflow_agent#0",
-          "react#0"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 12.09,
-        "recall@1": 0.5,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "conf_plugin",
-        "type": "confusable",
-        "query": "聊天机器人加关键词插件算不算真正的 Agent",
-        "relevant_chunk_ids": [
-          "workflow_agent#1"
-        ],
-        "ranked": [
-          "workflow_agent#1",
-          "workflow_agent#0",
-          "rag#0",
-          "transformer#0",
-          "react#0"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 11.33,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "conf_cot",
-        "type": "confusable",
-        "query": "纯 Chain-of-Thought 相比 ReAct 缺什么能力",
-        "relevant_chunk_ids": [
-          "react#0"
-        ],
-        "ranked": [
-          "react#0",
-          "transformer#0",
-          "workflow_agent#0",
-          "rag#0",
-          "workflow_agent#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 11.96,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "conf_encoder_decoder",
-        "type": "confusable",
-        "query": "GPT 一类模型主要用 Encoder 还是 Decoder",
-        "relevant_chunk_ids": [
-          "transformer#1"
-        ],
-        "ranked": [
-          "transformer#1",
-          "workflow_agent#0",
-          "react#0",
-          "react#1",
-          "transformer#0"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 11.79,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      }
-    ],
-    "hybrid": [
-      {
-        "id": "pn_react",
-        "type": "proper_noun",
-        "query": "ReAct",
-        "relevant_chunk_ids": [
-          "react#0"
-        ],
-        "ranked": [
-          "react#0",
-          "workflow_agent#0",
-          "rag#0",
-          "transformer#1",
-          "react#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 10.38,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "pn_mcp",
-        "type": "proper_noun",
-        "query": "MCP 是什么协议",
-        "relevant_chunk_ids": [
-          "workflow_agent#0",
-          "workflow_agent#1"
-        ],
-        "ranked": [
-          "workflow_agent#0",
-          "transformer#1",
-          "workflow_agent#1",
-          "rag#0",
-          "react#0"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 7.18,
-        "recall@1": 0.5,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "pn_layernorm",
-        "type": "proper_noun",
-        "query": "LayerNorm",
-        "relevant_chunk_ids": [
-          "transformer#0",
-          "transformer#1"
-        ],
-        "ranked": [
-          "transformer#0",
-          "transformer#1",
-          "rag#0",
-          "workflow_agent#1",
-          "react#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 9.63,
-        "recall@1": 0.5,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "pn_yao",
-        "type": "proper_noun",
-        "query": "Yao et al., 2022",
-        "relevant_chunk_ids": [
-          "react#0"
-        ],
-        "ranked": [
-          "react#0",
-          "workflow_agent#1",
-          "rag#0",
-          "transformer#0",
-          "workflow_agent#0"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 9.31,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "pn_a2a",
-        "type": "proper_noun",
-        "query": "A2A",
-        "relevant_chunk_ids": [
-          "workflow_agent#0",
-          "workflow_agent#1"
-        ],
-        "ranked": [
-          "workflow_agent#1",
-          "workflow_agent#0",
-          "rag#0",
-          "transformer#0",
-          "transformer#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 9.46,
-        "recall@1": 0.5,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "syn_react_loop",
-        "type": "synonym",
-        "query": "推理与行动交替的智能体框架叫什么",
-        "relevant_chunk_ids": [
-          "react#0"
-        ],
-        "ranked": [
-          "react#0",
-          "workflow_agent#1",
-          "workflow_agent#0",
-          "transformer#0",
-          "rag#0"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 9.7,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
-        "id": "syn_rag_pipeline",
-        "type": "synonym",
-        "query": "先切分再向量化再取 top-k 最后生成的流水线叫什么",
-        "relevant_chunk_ids": [
-          "rag#0"
-        ],
-        "ranked": [
-          "rag#0",
-          "transformer#0",
-          "react#0",
-          "transformer#1",
-          "react#1"
-        ],
-        "mrr": 1.0,
-        "latency_ms": 10.66,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
-      },
-      {
         "id": "syn_agentic",
         "type": "synonym",
         "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
@@ -1194,17 +1488,17 @@
           "rag#0"
         ],
         "ranked": [
-          "rag#0",
-          "transformer#0",
-          "react#1",
-          "react#0",
-          "transformer#1"
+          "lab_qa_design#2",
+          "transformer#4",
+          "memory_context#1",
+          "react#7",
+          "workflow_agent#3"
         ],
-        "mrr": 1.0,
-        "latency_ms": 11.86,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.0,
+        "latency_ms": 12.31,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "syn_attention",
@@ -1215,13 +1509,13 @@
         ],
         "ranked": [
           "transformer#0",
-          "react#0",
-          "rag#0",
-          "transformer#1",
-          "workflow_agent#1"
+          "transformer#3",
+          "rag#1",
+          "transformer#4",
+          "rag#4"
         ],
         "mrr": 1.0,
-        "latency_ms": 12.8,
+        "latency_ms": 13.57,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1234,17 +1528,17 @@
           "workflow_agent#0"
         ],
         "ranked": [
-          "workflow_agent#0",
-          "rag#0",
-          "workflow_agent#1",
-          "transformer#0",
-          "react#0"
+          "memory_context#0",
+          "memory_context#1",
+          "memory_context#3",
+          "retrieval_badcases#1",
+          "chunking_ops#1"
         ],
-        "mrr": 1.0,
-        "latency_ms": 10.92,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.0,
+        "latency_ms": 16.39,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "syn_refuse",
@@ -1254,17 +1548,17 @@
           "rag#0"
         ],
         "ranked": [
-          "rag#0",
-          "react#1",
-          "react#0",
-          "transformer#1",
-          "transformer#0"
+          "rag#1",
+          "citation_refuse#2",
+          "citation_refuse#3",
+          "citation_refuse#1",
+          "agent_eval#0"
         ],
-        "mrr": 1.0,
-        "latency_ms": 11.0,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.0,
+        "latency_ms": 16.71,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "short_overlap",
@@ -1275,13 +1569,13 @@
         ],
         "ranked": [
           "rag#0",
-          "workflow_agent#0",
-          "react#1",
-          "workflow_agent#1",
-          "transformer#1"
+          "embedding_retrieval#1",
+          "chunking_ops#0",
+          "retrieval_badcases#0",
+          "chunking_ops#3"
         ],
         "mrr": 1.0,
-        "latency_ms": 8.09,
+        "latency_ms": 15.47,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1297,12 +1591,12 @@
         "ranked": [
           "transformer#1",
           "transformer#0",
-          "react#1",
-          "rag#0",
-          "react#0"
+          "transformer#2",
+          "embedding_retrieval#2",
+          "react#1"
         ],
         "mrr": 1.0,
-        "latency_ms": 10.44,
+        "latency_ms": 10.82,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1316,13 +1610,13 @@
         ],
         "ranked": [
           "transformer#0",
+          "embedding_retrieval#2",
           "rag#0",
-          "transformer#1",
-          "react#1",
-          "react#0"
+          "eval_metrics_deep#0",
+          "agent_eval#1"
         ],
         "mrr": 1.0,
-        "latency_ms": 12.62,
+        "latency_ms": 10.76,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1336,13 +1630,13 @@
         ],
         "ranked": [
           "workflow_agent#1",
+          "workflow_agent#2",
           "workflow_agent#0",
-          "transformer#1",
-          "rag#0",
-          "transformer#0"
+          "prompt_and_tools#1",
+          "react#2"
         ],
         "mrr": 1.0,
-        "latency_ms": 10.21,
+        "latency_ms": 14.49,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1356,17 +1650,17 @@
           "react#1"
         ],
         "ranked": [
+          "react#2",
+          "react#3",
           "react#0",
-          "react#1",
-          "rag#0",
-          "transformer#0",
-          "transformer#1"
+          "react#7",
+          "react#6"
         ],
-        "mrr": 1.0,
-        "latency_ms": 10.95,
-        "recall@1": 0.5,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.3333333333333333,
+        "latency_ms": 14.02,
+        "recall@1": 0.0,
+        "recall@3": 0.5,
+        "recall@5": 0.5
       },
       {
         "id": "conf_rag_vs_agentic",
@@ -1377,13 +1671,13 @@
         ],
         "ranked": [
           "rag#0",
-          "workflow_agent#1",
-          "workflow_agent#0",
-          "transformer#1",
-          "react#1"
+          "chunking_ops#2",
+          "embedding_retrieval#4",
+          "llm_api_ops#3",
+          "agent_eval#3"
         ],
         "mrr": 1.0,
-        "latency_ms": 12.64,
+        "latency_ms": 12.79,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1396,17 +1690,17 @@
           "workflow_agent#0"
         ],
         "ranked": [
-          "workflow_agent#0",
-          "rag#0",
-          "workflow_agent#1",
-          "react#0",
-          "react#1"
+          "workflow_agent#5",
+          "hybrid_rrf#3",
+          "workflow_agent#2",
+          "memory_context#1",
+          "agent_runtime_deep#0"
         ],
-        "mrr": 1.0,
-        "latency_ms": 7.12,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.0,
+        "latency_ms": 13.55,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "conf_bn_ln",
@@ -1419,12 +1713,12 @@
         "ranked": [
           "transformer#1",
           "transformer#0",
-          "workflow_agent#0",
-          "rag#0",
-          "react#0"
+          "embedding_retrieval#1",
+          "embedding_retrieval#0",
+          "transformer#2"
         ],
         "mrr": 1.0,
-        "latency_ms": 11.71,
+        "latency_ms": 13.16,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1437,17 +1731,17 @@
           "workflow_agent#1"
         ],
         "ranked": [
-          "workflow_agent#1",
-          "workflow_agent#0",
-          "rag#0",
-          "transformer#0",
-          "react#0"
+          "react#3",
+          "prompt_and_tools#1",
+          "lab_qa_design#3",
+          "llm_api_ops#1",
+          "workflow_agent#2"
         ],
-        "mrr": 1.0,
-        "latency_ms": 10.96,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.0,
+        "latency_ms": 15.83,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "conf_cot",
@@ -1458,13 +1752,13 @@
         ],
         "ranked": [
           "react#0",
-          "transformer#0",
-          "workflow_agent#0",
-          "rag#0",
-          "workflow_agent#1"
+          "react#4",
+          "react#2",
+          "react#3",
+          "react#6"
         ],
         "mrr": 1.0,
-        "latency_ms": 9.78,
+        "latency_ms": 12.97,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1478,13 +1772,13 @@
         ],
         "ranked": [
           "transformer#1",
-          "workflow_agent#0",
-          "react#0",
-          "react#1",
-          "transformer#0"
+          "transformer#2",
+          "transformer#4",
+          "agent_runtime_deep#2",
+          "transformer#3"
         ],
         "mrr": 1.0,
-        "latency_ms": 13.56,
+        "latency_ms": 12.82,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1500,13 +1794,13 @@
         ],
         "ranked": [
           "react#0",
-          "transformer#0",
-          "workflow_agent#0",
-          "workflow_agent#1",
-          "react#1"
+          "react#6",
+          "react#3",
+          "react#4",
+          "react#2"
         ],
         "mrr": 1.0,
-        "latency_ms": 2354.11,
+        "latency_ms": 3706.31,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1522,12 +1816,12 @@
         "ranked": [
           "workflow_agent#0",
           "workflow_agent#1",
-          "transformer#0",
-          "transformer#1",
-          "rag#0"
+          "workflow_agent#3",
+          "workflow_agent#2",
+          "agent_eval#1"
         ],
         "mrr": 1.0,
-        "latency_ms": 1860.56,
+        "latency_ms": 3749.71,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1543,12 +1837,12 @@
         "ranked": [
           "transformer#0",
           "transformer#1",
-          "react#1",
-          "react#0",
-          "workflow_agent#0"
+          "react#2",
+          "lab_qa_design#0",
+          "lab_qa_design#1"
         ],
         "mrr": 1.0,
-        "latency_ms": 1968.88,
+        "latency_ms": 3725.05,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1562,13 +1856,13 @@
         ],
         "ranked": [
           "react#0",
-          "workflow_agent#1",
-          "transformer#0",
-          "transformer#1",
-          "workflow_agent#0"
+          "embedding_retrieval#4",
+          "memory_context#2",
+          "workflow_agent#5",
+          "llm_api_ops#3"
         ],
         "mrr": 1.0,
-        "latency_ms": 2039.39,
+        "latency_ms": 3661.55,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1584,12 +1878,12 @@
         "ranked": [
           "workflow_agent#1",
           "workflow_agent#0",
-          "react#0",
-          "transformer#0",
-          "rag#0"
+          "retrieval_badcases#1",
+          "llm_api_ops#1",
+          "citation_refuse#3"
         ],
         "mrr": 1.0,
-        "latency_ms": 1854.13,
+        "latency_ms": 3656.43,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1604,12 +1898,12 @@
         "ranked": [
           "react#0",
           "workflow_agent#1",
-          "workflow_agent#0",
-          "transformer#0",
-          "transformer#1"
+          "workflow_agent#2",
+          "agent_eval#3",
+          "embedding_retrieval#3"
         ],
         "mrr": 1.0,
-        "latency_ms": 1890.8,
+        "latency_ms": 4376.17,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1623,13 +1917,13 @@
         ],
         "ranked": [
           "rag#0",
-          "transformer#1",
-          "transformer#0",
-          "workflow_agent#0",
-          "workflow_agent#1"
+          "hybrid_rrf#1",
+          "embedding_retrieval#1",
+          "rag#4",
+          "embedding_retrieval#2"
         ],
         "mrr": 1.0,
-        "latency_ms": 1954.05,
+        "latency_ms": 4511.16,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1643,13 +1937,13 @@
         ],
         "ranked": [
           "rag#0",
-          "workflow_agent#0",
-          "transformer#0",
-          "react#0",
-          "transformer#1"
+          "workflow_agent#3",
+          "lab_qa_design#2",
+          "transformer#4",
+          "llm_api_ops#1"
         ],
         "mrr": 1.0,
-        "latency_ms": 2547.24,
+        "latency_ms": 4206.81,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1663,13 +1957,13 @@
         ],
         "ranked": [
           "transformer#0",
-          "rag#0",
-          "workflow_agent#1",
-          "transformer#1",
-          "react#0"
+          "embedding_retrieval#0",
+          "rag#1",
+          "transformer#3",
+          "transformer#4"
         ],
         "mrr": 1.0,
-        "latency_ms": 2400.27,
+        "latency_ms": 4505.52,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1682,17 +1976,17 @@
           "workflow_agent#0"
         ],
         "ranked": [
-          "workflow_agent#0",
-          "transformer#0",
-          "workflow_agent#1",
-          "rag#0",
-          "transformer#1"
+          "memory_context#0",
+          "workflow_agent#3",
+          "memory_context#1",
+          "lab_qa_design#0",
+          "agent_runtime_deep#1"
         ],
-        "mrr": 1.0,
-        "latency_ms": 2307.19,
-        "recall@1": 1.0,
-        "recall@3": 1.0,
-        "recall@5": 1.0
+        "mrr": 0.0,
+        "latency_ms": 4146.72,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
       },
       {
         "id": "syn_refuse",
@@ -1702,15 +1996,15 @@
           "rag#0"
         ],
         "ranked": [
+          "rag#1",
           "rag#0",
-          "transformer#0",
-          "react#1",
-          "react#0",
-          "workflow_agent#0"
+          "prompt_and_tools#2",
+          "citation_refuse#3",
+          "citation_refuse#2"
         ],
-        "mrr": 1.0,
-        "latency_ms": 2315.61,
-        "recall@1": 1.0,
+        "mrr": 0.5,
+        "latency_ms": 4747.75,
+        "recall@1": 0.0,
         "recall@3": 1.0,
         "recall@5": 1.0
       },
@@ -1722,15 +2016,15 @@
           "rag#0"
         ],
         "ranked": [
+          "embedding_retrieval#1",
           "rag#0",
-          "transformer#0",
-          "workflow_agent#0",
-          "react#1",
-          "react#0"
+          "chunking_ops#0",
+          "retrieval_badcases#0",
+          "workflow_agent#2"
         ],
-        "mrr": 1.0,
-        "latency_ms": 2321.62,
-        "recall@1": 1.0,
+        "mrr": 0.5,
+        "latency_ms": 4349.21,
+        "recall@1": 0.0,
         "recall@3": 1.0,
         "recall@5": 1.0
       },
@@ -1745,12 +2039,12 @@
         "ranked": [
           "transformer#0",
           "transformer#1",
-          "react#0",
-          "workflow_agent#0",
-          "workflow_agent#1"
+          "react#1",
+          "embedding_retrieval#0",
+          "embedding_retrieval#1"
         ],
         "mrr": 1.0,
-        "latency_ms": 2499.77,
+        "latency_ms": 4204.79,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1764,13 +2058,13 @@
         ],
         "ranked": [
           "transformer#0",
-          "workflow_agent#1",
-          "rag#0",
-          "react#0",
-          "react#1"
+          "workflow_agent#3",
+          "agent_eval#2",
+          "rag#3",
+          "hybrid_rrf#0"
         ],
         "mrr": 1.0,
-        "latency_ms": 2331.19,
+        "latency_ms": 4487.43,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1784,13 +2078,13 @@
         ],
         "ranked": [
           "workflow_agent#1",
+          "workflow_agent#3",
+          "workflow_agent#2",
           "workflow_agent#0",
-          "transformer#0",
-          "transformer#1",
-          "rag#0"
+          "prompt_and_tools#1"
         ],
         "mrr": 1.0,
-        "latency_ms": 2334.08,
+        "latency_ms": 4018.31,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1806,12 +2100,12 @@
         "ranked": [
           "react#0",
           "react#1",
-          "transformer#0",
-          "rag#0",
-          "workflow_agent#0"
+          "react#2",
+          "react#3",
+          "react#6"
         ],
         "mrr": 1.0,
-        "latency_ms": 2331.15,
+        "latency_ms": 4138.93,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1825,13 +2119,13 @@
         ],
         "ranked": [
           "rag#0",
-          "workflow_agent#1",
-          "workflow_agent#0",
-          "transformer#0",
-          "transformer#1"
+          "embedding_retrieval#4",
+          "transformer#2",
+          "memory_context#2",
+          "chunking_ops#2"
         ],
         "mrr": 1.0,
-        "latency_ms": 2432.42,
+        "latency_ms": 4958.18,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1845,13 +2139,13 @@
         ],
         "ranked": [
           "workflow_agent#0",
+          "workflow_agent#2",
           "workflow_agent#1",
-          "rag#0",
-          "react#0",
-          "transformer#0"
+          "workflow_agent#3",
+          "transformer#3"
         ],
         "mrr": 1.0,
-        "latency_ms": 2848.19,
+        "latency_ms": 3903.12,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1867,12 +2161,12 @@
         "ranked": [
           "transformer#1",
           "transformer#0",
-          "workflow_agent#1",
-          "rag#0",
-          "workflow_agent#0"
+          "agent_runtime_deep#1",
+          "transformer#6",
+          "embedding_retrieval#0"
         ],
         "mrr": 1.0,
-        "latency_ms": 2311.06,
+        "latency_ms": 4258.52,
         "recall@1": 0.5,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1886,13 +2180,13 @@
         ],
         "ranked": [
           "workflow_agent#1",
-          "rag#0",
-          "workflow_agent#0",
-          "transformer#1",
-          "transformer#0"
+          "react#3",
+          "rag#2",
+          "llm_api_ops#1",
+          "agent_eval#0"
         ],
         "mrr": 1.0,
-        "latency_ms": 2290.41,
+        "latency_ms": 4827.52,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1906,13 +2200,13 @@
         ],
         "ranked": [
           "react#0",
-          "workflow_agent#1",
-          "transformer#0",
-          "workflow_agent#0",
-          "rag#0"
+          "react#4",
+          "react#3",
+          "react#6",
+          "react#2"
         ],
         "mrr": 1.0,
-        "latency_ms": 2357.11,
+        "latency_ms": 4516.7,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
@@ -1926,13 +2220,13 @@
         ],
         "ranked": [
           "transformer#1",
-          "workflow_agent#0",
-          "transformer#0",
-          "react#0",
-          "react#1"
+          "transformer#2",
+          "transformer#3",
+          "transformer#4",
+          "agent_runtime_deep#2"
         ],
         "mrr": 1.0,
-        "latency_ms": 2203.39,
+        "latency_ms": 4310.53,
         "recall@1": 1.0,
         "recall@3": 1.0,
         "recall@5": 1.0
