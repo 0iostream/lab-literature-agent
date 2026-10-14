@@ -1,0 +1,1942 @@
+{
+  "gold_path": "data\\eval\\retrieval_gold.json",
+  "n_queries": 22,
+  "reranker": "cross_encoder",
+  "modes": {
+    "lexical": {
+      "n": 22,
+      "mode": "lexical",
+      "recall@1": 0.6818181818181818,
+      "recall@3": 0.75,
+      "recall@5": 0.75,
+      "mrr": 0.8181818181818182,
+      "avg_latency_ms": 1.0172863621846773,
+      "fail_recall@3": 4,
+      "reranker": null
+    },
+    "vector": {
+      "n": 22,
+      "mode": "vector",
+      "recall@1": 0.7727272727272727,
+      "recall@3": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.9469696969696969,
+      "avg_latency_ms": 119.05810909030896,
+      "fail_recall@3": 0,
+      "reranker": null
+    },
+    "hybrid": {
+      "n": 22,
+      "mode": "hybrid",
+      "recall@1": 0.8636363636363636,
+      "recall@3": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "avg_latency_ms": 10.499545454380991,
+      "fail_recall@3": 0,
+      "reranker": null
+    },
+    "hybrid_rerank": {
+      "n": 22,
+      "mode": "hybrid_rerank",
+      "recall@1": 0.8636363636363636,
+      "recall@3": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "avg_latency_ms": 2261.483513637028,
+      "fail_recall@3": 0,
+      "reranker": "cross_encoder"
+    }
+  },
+  "by_type": {
+    "confusable": {
+      "lexical": {
+        "n": 6,
+        "recall@1": 0.9166666666666666,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 0.27
+      },
+      "vector": {
+        "n": 6,
+        "recall@1": 0.9166666666666666,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 11.318333333333333
+      },
+      "hybrid": {
+        "n": 6,
+        "recall@1": 0.9166666666666666,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 10.961666666666666
+      },
+      "hybrid_rerank": {
+        "n": 6,
+        "recall@1": 0.9166666666666666,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 2407.096666666667
+      }
+    },
+    "proper_noun": {
+      "lexical": {
+        "n": 5,
+        "recall@1": 0.7,
+        "recall@3": 0.8,
+        "recall@5": 0.8,
+        "mrr": 1.0,
+        "avg_latency_ms": 3.7400000000000007
+      },
+      "vector": {
+        "n": 5,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 0.8666666666666666,
+        "avg_latency_ms": 487.04200000000003
+      },
+      "hybrid": {
+        "n": 5,
+        "recall@1": 0.7,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 9.192
+      },
+      "hybrid_rerank": {
+        "n": 5,
+        "recall@1": 0.7,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 2015.414
+      }
+    },
+    "short": {
+      "lexical": {
+        "n": 5,
+        "recall@1": 0.8,
+        "recall@3": 0.9,
+        "recall@5": 0.9,
+        "mrr": 1.0,
+        "avg_latency_ms": 0.186
+      },
+      "vector": {
+        "n": 5,
+        "recall@1": 0.6,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 0.9,
+        "avg_latency_ms": 9.922
+      },
+      "hybrid": {
+        "n": 5,
+        "recall@1": 0.8,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 10.462
+      },
+      "hybrid_rerank": {
+        "n": 5,
+        "recall@1": 0.8,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 2363.562
+      }
+    },
+    "synonym": {
+      "lexical": {
+        "n": 6,
+        "recall@1": 0.3333333333333333,
+        "recall@3": 0.3333333333333333,
+        "recall@5": 0.3333333333333333,
+        "mrr": 0.3333333333333333,
+        "avg_latency_ms": 0.18499999999999997
+      },
+      "vector": {
+        "n": 6,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 11.093333333333334
+      },
+      "hybrid": {
+        "n": 6,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 11.156666666666666
+      },
+      "hybrid_rerank": {
+        "n": 6,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "mrr": 1.0,
+        "avg_latency_ms": 2235.86
+      }
+    }
+  },
+  "failures": {
+    "lexical": [
+      {
+        "id": "syn_react_loop",
+        "type": "synonym",
+        "query": "推理与行动交替的智能体框架叫什么",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": []
+      },
+      {
+        "id": "syn_agentic",
+        "type": "synonym",
+        "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": []
+      },
+      {
+        "id": "syn_memory",
+        "type": "synonym",
+        "query": "跨多次对话持久保存的事实记忆叫什么层",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": []
+      },
+      {
+        "id": "syn_refuse",
+        "type": "synonym",
+        "query": "检索没命中文献时正确做法是什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": []
+      }
+    ],
+    "vector": [],
+    "hybrid": [],
+    "hybrid_rerank": []
+  },
+  "cases": {
+    "lexical": [
+      {
+        "id": "pn_react",
+        "type": "proper_noun",
+        "query": "ReAct",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 17.67,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_mcp",
+        "type": "proper_noun",
+        "query": "MCP 是什么协议",
+        "relevant_chunk_ids": [
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.33,
+        "recall@1": 0.5,
+        "recall@3": 0.5,
+        "recall@5": 0.5
+      },
+      {
+        "id": "pn_layernorm",
+        "type": "proper_noun",
+        "query": "LayerNorm",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.29,
+        "recall@1": 0.5,
+        "recall@3": 0.5,
+        "recall@5": 0.5
+      },
+      {
+        "id": "pn_yao",
+        "type": "proper_noun",
+        "query": "Yao et al., 2022",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.22,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_a2a",
+        "type": "proper_noun",
+        "query": "A2A",
+        "relevant_chunk_ids": [
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "workflow_agent#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.19,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_react_loop",
+        "type": "synonym",
+        "query": "推理与行动交替的智能体框架叫什么",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [],
+        "mrr": 0.0,
+        "latency_ms": 0.19,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
+      },
+      {
+        "id": "syn_rag_pipeline",
+        "type": "synonym",
+        "query": "先切分再向量化再取 top-k 最后生成的流水线叫什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.19,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_agentic",
+        "type": "synonym",
+        "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [],
+        "mrr": 0.0,
+        "latency_ms": 0.18,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
+      },
+      {
+        "id": "syn_attention",
+        "type": "synonym",
+        "query": "用 Query Key Value 算相似度再加权 Value 的机制",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "transformer#0",
+          "react#0",
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.19,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_memory",
+        "type": "synonym",
+        "query": "跨多次对话持久保存的事实记忆叫什么层",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [],
+        "mrr": 0.0,
+        "latency_ms": 0.18,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
+      },
+      {
+        "id": "syn_refuse",
+        "type": "synonym",
+        "query": "检索没命中文献时正确做法是什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [],
+        "mrr": 0.0,
+        "latency_ms": 0.18,
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0
+      },
+      {
+        "id": "short_overlap",
+        "type": "short",
+        "query": "overlap 干什么用",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.19,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_ffn",
+        "type": "short",
+        "query": "FFN 做什么",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.19,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_sqrt",
+        "type": "short",
+        "query": "为什么除以 sqrt(d_k)",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.19,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_skills",
+        "type": "short",
+        "query": "Skills 是传输协议吗",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.18,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_max_steps",
+        "type": "short",
+        "query": "ReAct 怎么防止死循环",
+        "relevant_chunk_ids": [
+          "react#0",
+          "react#1"
+        ],
+        "ranked": [
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.18,
+        "recall@1": 0.5,
+        "recall@3": 0.5,
+        "recall@5": 0.5
+      },
+      {
+        "id": "conf_rag_vs_agentic",
+        "type": "confusable",
+        "query": "传统 RAG 和控制流在代码里的关系，它是不是 Agent",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "workflow_agent#1",
+          "workflow_agent#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.19,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_workflow_agent",
+        "type": "confusable",
+        "query": "步骤写死可预期延迟的是 Workflow 还是 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "workflow_agent#1",
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.19,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_bn_ln",
+        "type": "confusable",
+        "query": "和 BatchNorm 不同、不依赖 batch 统计的是哪种归一化",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "transformer#0",
+          "workflow_agent#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.27,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_plugin",
+        "type": "confusable",
+        "query": "聊天机器人加关键词插件算不算真正的 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.2,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_cot",
+        "type": "confusable",
+        "query": "纯 Chain-of-Thought 相比 ReAct 缺什么能力",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.32,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_encoder_decoder",
+        "type": "confusable",
+        "query": "GPT 一类模型主要用 Encoder 还是 Decoder",
+        "relevant_chunk_ids": [
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 0.45,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    ],
+    "vector": [
+      {
+        "id": "pn_react",
+        "type": "proper_noun",
+        "query": "ReAct",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "workflow_agent#0",
+          "rag#0",
+          "transformer#1",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2340.75,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_mcp",
+        "type": "proper_noun",
+        "query": "MCP 是什么协议",
+        "relevant_chunk_ids": [
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "transformer#1",
+          "workflow_agent#1",
+          "rag#0",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 45.04,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_layernorm",
+        "type": "proper_noun",
+        "query": "LayerNorm",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "transformer#0",
+          "rag#0",
+          "workflow_agent#1",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 22.64,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_yao",
+        "type": "proper_noun",
+        "query": "Yao et al., 2022",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "rag#0",
+          "react#0",
+          "transformer#0",
+          "workflow_agent#0"
+        ],
+        "mrr": 0.3333333333333333,
+        "latency_ms": 15.01,
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_a2a",
+        "type": "proper_noun",
+        "query": "A2A",
+        "relevant_chunk_ids": [
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "rag#0",
+          "workflow_agent#0",
+          "transformer#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 11.77,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_react_loop",
+        "type": "synonym",
+        "query": "推理与行动交替的智能体框架叫什么",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "transformer#0",
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 13.22,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_rag_pipeline",
+        "type": "synonym",
+        "query": "先切分再向量化再取 top-k 最后生成的流水线叫什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "transformer#0",
+          "react#0",
+          "transformer#1",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 7.69,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_agentic",
+        "type": "synonym",
+        "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "transformer#0",
+          "react#1",
+          "react#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 11.94,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_attention",
+        "type": "synonym",
+        "query": "用 Query Key Value 算相似度再加权 Value 的机制",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "transformer#0",
+          "transformer#1",
+          "rag#0",
+          "react#0",
+          "workflow_agent#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 11.85,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_memory",
+        "type": "synonym",
+        "query": "跨多次对话持久保存的事实记忆叫什么层",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "rag#0",
+          "workflow_agent#1",
+          "transformer#0",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 11.99,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_refuse",
+        "type": "synonym",
+        "query": "检索没命中文献时正确做法是什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "react#1",
+          "react#0",
+          "transformer#1",
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 9.87,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_overlap",
+        "type": "short",
+        "query": "overlap 干什么用",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "workflow_agent#0",
+          "react#1",
+          "workflow_agent#1",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 9.57,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_ffn",
+        "type": "short",
+        "query": "FFN 做什么",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "react#1",
+          "transformer#0",
+          "rag#0",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 9.53,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_sqrt",
+        "type": "short",
+        "query": "为什么除以 sqrt(d_k)",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "transformer#0",
+          "transformer#1",
+          "react#1",
+          "react#0"
+        ],
+        "mrr": 0.5,
+        "latency_ms": 11.37,
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_skills",
+        "type": "short",
+        "query": "Skills 是传输协议吗",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "transformer#1",
+          "rag#0",
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 8.58,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_max_steps",
+        "type": "short",
+        "query": "ReAct 怎么防止死循环",
+        "relevant_chunk_ids": [
+          "react#0",
+          "react#1"
+        ],
+        "ranked": [
+          "react#0",
+          "react#1",
+          "rag#0",
+          "transformer#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.56,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_rag_vs_agentic",
+        "type": "confusable",
+        "query": "传统 RAG 和控制流在代码里的关系，它是不是 Agent",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "workflow_agent#1",
+          "transformer#1",
+          "workflow_agent#0",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 12.78,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_workflow_agent",
+        "type": "confusable",
+        "query": "步骤写死可预期延迟的是 Workflow 还是 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "react#0",
+          "react#1",
+          "rag#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 7.96,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_bn_ln",
+        "type": "confusable",
+        "query": "和 BatchNorm 不同、不依赖 batch 统计的是哪种归一化",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "transformer#0",
+          "rag#0",
+          "workflow_agent#0",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 12.09,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_plugin",
+        "type": "confusable",
+        "query": "聊天机器人加关键词插件算不算真正的 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "rag#0",
+          "transformer#0",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 11.33,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_cot",
+        "type": "confusable",
+        "query": "纯 Chain-of-Thought 相比 ReAct 缺什么能力",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "transformer#0",
+          "workflow_agent#0",
+          "rag#0",
+          "workflow_agent#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 11.96,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_encoder_decoder",
+        "type": "confusable",
+        "query": "GPT 一类模型主要用 Encoder 还是 Decoder",
+        "relevant_chunk_ids": [
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "workflow_agent#0",
+          "react#0",
+          "react#1",
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 11.79,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    ],
+    "hybrid": [
+      {
+        "id": "pn_react",
+        "type": "proper_noun",
+        "query": "ReAct",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "workflow_agent#0",
+          "rag#0",
+          "transformer#1",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.38,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_mcp",
+        "type": "proper_noun",
+        "query": "MCP 是什么协议",
+        "relevant_chunk_ids": [
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "transformer#1",
+          "workflow_agent#1",
+          "rag#0",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 7.18,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_layernorm",
+        "type": "proper_noun",
+        "query": "LayerNorm",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#0",
+          "transformer#1",
+          "rag#0",
+          "workflow_agent#1",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 9.63,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_yao",
+        "type": "proper_noun",
+        "query": "Yao et al., 2022",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "workflow_agent#1",
+          "rag#0",
+          "transformer#0",
+          "workflow_agent#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 9.31,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_a2a",
+        "type": "proper_noun",
+        "query": "A2A",
+        "relevant_chunk_ids": [
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "rag#0",
+          "transformer#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 9.46,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_react_loop",
+        "type": "synonym",
+        "query": "推理与行动交替的智能体框架叫什么",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "transformer#0",
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 9.7,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_rag_pipeline",
+        "type": "synonym",
+        "query": "先切分再向量化再取 top-k 最后生成的流水线叫什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "transformer#0",
+          "react#0",
+          "transformer#1",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.66,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_agentic",
+        "type": "synonym",
+        "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "transformer#0",
+          "react#1",
+          "react#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 11.86,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_attention",
+        "type": "synonym",
+        "query": "用 Query Key Value 算相似度再加权 Value 的机制",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "transformer#0",
+          "react#0",
+          "rag#0",
+          "transformer#1",
+          "workflow_agent#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 12.8,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_memory",
+        "type": "synonym",
+        "query": "跨多次对话持久保存的事实记忆叫什么层",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "rag#0",
+          "workflow_agent#1",
+          "transformer#0",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.92,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_refuse",
+        "type": "synonym",
+        "query": "检索没命中文献时正确做法是什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "react#1",
+          "react#0",
+          "transformer#1",
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 11.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_overlap",
+        "type": "short",
+        "query": "overlap 干什么用",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "workflow_agent#0",
+          "react#1",
+          "workflow_agent#1",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 8.09,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_ffn",
+        "type": "short",
+        "query": "FFN 做什么",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "transformer#0",
+          "react#1",
+          "rag#0",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.44,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_sqrt",
+        "type": "short",
+        "query": "为什么除以 sqrt(d_k)",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "transformer#0",
+          "rag#0",
+          "transformer#1",
+          "react#1",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 12.62,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_skills",
+        "type": "short",
+        "query": "Skills 是传输协议吗",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "transformer#1",
+          "rag#0",
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.21,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_max_steps",
+        "type": "short",
+        "query": "ReAct 怎么防止死循环",
+        "relevant_chunk_ids": [
+          "react#0",
+          "react#1"
+        ],
+        "ranked": [
+          "react#0",
+          "react#1",
+          "rag#0",
+          "transformer#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.95,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_rag_vs_agentic",
+        "type": "confusable",
+        "query": "传统 RAG 和控制流在代码里的关系，它是不是 Agent",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "transformer#1",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 12.64,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_workflow_agent",
+        "type": "confusable",
+        "query": "步骤写死可预期延迟的是 Workflow 还是 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "rag#0",
+          "workflow_agent#1",
+          "react#0",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 7.12,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_bn_ln",
+        "type": "confusable",
+        "query": "和 BatchNorm 不同、不依赖 batch 统计的是哪种归一化",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "transformer#0",
+          "workflow_agent#0",
+          "rag#0",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 11.71,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_plugin",
+        "type": "confusable",
+        "query": "聊天机器人加关键词插件算不算真正的 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "rag#0",
+          "transformer#0",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 10.96,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_cot",
+        "type": "confusable",
+        "query": "纯 Chain-of-Thought 相比 ReAct 缺什么能力",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "transformer#0",
+          "workflow_agent#0",
+          "rag#0",
+          "workflow_agent#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 9.78,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_encoder_decoder",
+        "type": "confusable",
+        "query": "GPT 一类模型主要用 Encoder 还是 Decoder",
+        "relevant_chunk_ids": [
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "workflow_agent#0",
+          "react#0",
+          "react#1",
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 13.56,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    ],
+    "hybrid_rerank": [
+      {
+        "id": "pn_react",
+        "type": "proper_noun",
+        "query": "ReAct",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "transformer#0",
+          "workflow_agent#0",
+          "workflow_agent#1",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2354.11,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_mcp",
+        "type": "proper_noun",
+        "query": "MCP 是什么协议",
+        "relevant_chunk_ids": [
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "workflow_agent#1",
+          "transformer#0",
+          "transformer#1",
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 1860.56,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_layernorm",
+        "type": "proper_noun",
+        "query": "LayerNorm",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#0",
+          "transformer#1",
+          "react#1",
+          "react#0",
+          "workflow_agent#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 1968.88,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_yao",
+        "type": "proper_noun",
+        "query": "Yao et al., 2022",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "workflow_agent#1",
+          "transformer#0",
+          "transformer#1",
+          "workflow_agent#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2039.39,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "pn_a2a",
+        "type": "proper_noun",
+        "query": "A2A",
+        "relevant_chunk_ids": [
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "react#0",
+          "transformer#0",
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 1854.13,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_react_loop",
+        "type": "synonym",
+        "query": "推理与行动交替的智能体框架叫什么",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "transformer#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 1890.8,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_rag_pipeline",
+        "type": "synonym",
+        "query": "先切分再向量化再取 top-k 最后生成的流水线叫什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "transformer#1",
+          "transformer#0",
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 1954.05,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_agentic",
+        "type": "synonym",
+        "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "workflow_agent#0",
+          "transformer#0",
+          "react#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2547.24,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_attention",
+        "type": "synonym",
+        "query": "用 Query Key Value 算相似度再加权 Value 的机制",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "transformer#0",
+          "rag#0",
+          "workflow_agent#1",
+          "transformer#1",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2400.27,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_memory",
+        "type": "synonym",
+        "query": "跨多次对话持久保存的事实记忆叫什么层",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "transformer#0",
+          "workflow_agent#1",
+          "rag#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2307.19,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "syn_refuse",
+        "type": "synonym",
+        "query": "检索没命中文献时正确做法是什么",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "transformer#0",
+          "react#1",
+          "react#0",
+          "workflow_agent#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2315.61,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_overlap",
+        "type": "short",
+        "query": "overlap 干什么用",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "transformer#0",
+          "workflow_agent#0",
+          "react#1",
+          "react#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2321.62,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_ffn",
+        "type": "short",
+        "query": "FFN 做什么",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#0",
+          "transformer#1",
+          "react#0",
+          "workflow_agent#0",
+          "workflow_agent#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2499.77,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_sqrt",
+        "type": "short",
+        "query": "为什么除以 sqrt(d_k)",
+        "relevant_chunk_ids": [
+          "transformer#0"
+        ],
+        "ranked": [
+          "transformer#0",
+          "workflow_agent#1",
+          "rag#0",
+          "react#0",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2331.19,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_skills",
+        "type": "short",
+        "query": "Skills 是传输协议吗",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "transformer#0",
+          "transformer#1",
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2334.08,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "short_max_steps",
+        "type": "short",
+        "query": "ReAct 怎么防止死循环",
+        "relevant_chunk_ids": [
+          "react#0",
+          "react#1"
+        ],
+        "ranked": [
+          "react#0",
+          "react#1",
+          "transformer#0",
+          "rag#0",
+          "workflow_agent#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2331.15,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_rag_vs_agentic",
+        "type": "confusable",
+        "query": "传统 RAG 和控制流在代码里的关系，它是不是 Agent",
+        "relevant_chunk_ids": [
+          "rag#0"
+        ],
+        "ranked": [
+          "rag#0",
+          "workflow_agent#1",
+          "workflow_agent#0",
+          "transformer#0",
+          "transformer#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2432.42,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_workflow_agent",
+        "type": "confusable",
+        "query": "步骤写死可预期延迟的是 Workflow 还是 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#0"
+        ],
+        "ranked": [
+          "workflow_agent#0",
+          "workflow_agent#1",
+          "rag#0",
+          "react#0",
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2848.19,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_bn_ln",
+        "type": "confusable",
+        "query": "和 BatchNorm 不同、不依赖 batch 统计的是哪种归一化",
+        "relevant_chunk_ids": [
+          "transformer#0",
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "transformer#0",
+          "workflow_agent#1",
+          "rag#0",
+          "workflow_agent#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2311.06,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_plugin",
+        "type": "confusable",
+        "query": "聊天机器人加关键词插件算不算真正的 Agent",
+        "relevant_chunk_ids": [
+          "workflow_agent#1"
+        ],
+        "ranked": [
+          "workflow_agent#1",
+          "rag#0",
+          "workflow_agent#0",
+          "transformer#1",
+          "transformer#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2290.41,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_cot",
+        "type": "confusable",
+        "query": "纯 Chain-of-Thought 相比 ReAct 缺什么能力",
+        "relevant_chunk_ids": [
+          "react#0"
+        ],
+        "ranked": [
+          "react#0",
+          "workflow_agent#1",
+          "transformer#0",
+          "workflow_agent#0",
+          "rag#0"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2357.11,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      {
+        "id": "conf_encoder_decoder",
+        "type": "confusable",
+        "query": "GPT 一类模型主要用 Encoder 还是 Decoder",
+        "relevant_chunk_ids": [
+          "transformer#1"
+        ],
+        "ranked": [
+          "transformer#1",
+          "workflow_agent#0",
+          "transformer#0",
+          "react#0",
+          "react#1"
+        ],
+        "mrr": 1.0,
+        "latency_ms": 2203.39,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    ]
+  }
+}

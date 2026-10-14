@@ -1,0 +1,134 @@
+[
+  {
+    "id": "pn_react",
+    "query": "ReAct",
+    "relevant_chunk_ids": ["react#0"],
+    "type": "proper_noun"
+  },
+  {
+    "id": "pn_mcp",
+    "query": "MCP 是什么协议",
+    "relevant_chunk_ids": ["workflow_agent#0", "workflow_agent#1"],
+    "type": "proper_noun"
+  },
+  {
+    "id": "pn_layernorm",
+    "query": "LayerNorm",
+    "relevant_chunk_ids": ["transformer#0", "transformer#1"],
+    "type": "proper_noun"
+  },
+  {
+    "id": "pn_yao",
+    "query": "Yao et al., 2022",
+    "relevant_chunk_ids": ["react#0"],
+    "type": "proper_noun"
+  },
+  {
+    "id": "pn_a2a",
+    "query": "A2A",
+    "relevant_chunk_ids": ["workflow_agent#0", "workflow_agent#1"],
+    "type": "proper_noun"
+  },
+  {
+    "id": "syn_react_loop",
+    "query": "推理与行动交替的智能体框架叫什么",
+    "relevant_chunk_ids": ["react#0"],
+    "type": "synonym"
+  },
+  {
+    "id": "syn_rag_pipeline",
+    "query": "先切分再向量化再取 top-k 最后生成的流水线叫什么",
+    "relevant_chunk_ids": ["rag#0"],
+    "type": "synonym"
+  },
+  {
+    "id": "syn_agentic",
+    "query": "由模型自己决定要不要搜索、搜什么的增强生成方式",
+    "relevant_chunk_ids": ["rag#0"],
+    "type": "synonym"
+  },
+  {
+    "id": "syn_attention",
+    "query": "用 Query Key Value 算相似度再加权 Value 的机制",
+    "relevant_chunk_ids": ["transformer#0"],
+    "type": "synonym"
+  },
+  {
+    "id": "syn_memory",
+    "query": "跨多次对话持久保存的事实记忆叫什么层",
+    "relevant_chunk_ids": ["workflow_agent#0"],
+    "type": "synonym"
+  },
+  {
+    "id": "syn_refuse",
+    "query": "检索没命中文献时正确做法是什么",
+    "relevant_chunk_ids": ["rag#0"],
+    "type": "synonym"
+  },
+  {
+    "id": "short_overlap",
+    "query": "overlap 干什么用",
+    "relevant_chunk_ids": ["rag#0"],
+    "type": "short"
+  },
+  {
+    "id": "short_ffn",
+    "query": "FFN 做什么",
+    "relevant_chunk_ids": ["transformer#0", "transformer#1"],
+    "type": "short"
+  },
+  {
+    "id": "short_sqrt",
+    "query": "为什么除以 sqrt(d_k)",
+    "relevant_chunk_ids": ["transformer#0"],
+    "type": "short"
+  },
+  {
+    "id": "short_skills",
+    "query": "Skills 是传输协议吗",
+    "relevant_chunk_ids": ["workflow_agent#1"],
+    "type": "short"
+  },
+  {
+    "id": "short_max_steps",
+    "query": "ReAct 怎么防止死循环",
+    "relevant_chunk_ids": ["react#0", "react#1"],
+    "type": "short"
+  },
+  {
+    "id": "conf_rag_vs_agentic",
+    "query": "传统 RAG 和控制流在代码里的关系，它是不是 Agent",
+    "relevant_chunk_ids": ["rag#0"],
+    "type": "confusable"
+  },
+  {
+    "id": "conf_workflow_agent",
+    "query": "步骤写死可预期延迟的是 Workflow 还是 Agent",
+    "relevant_chunk_ids": ["workflow_agent#0"],
+    "type": "confusable"
+  },
+  {
+    "id": "conf_bn_ln",
+    "query": "和 BatchNorm 不同、不依赖 batch 统计的是哪种归一化",
+    "relevant_chunk_ids": ["transformer#0", "transformer#1"],
+    "type": "confusable"
+  },
+  {
+    "id": "conf_plugin",
+    "query": "聊天机器人加关键词插件算不算真正的 Agent",
+    "relevant_chunk_ids": ["workflow_agent#1"],
+    "type": "confusable"
+  },
+  {
+    "id": "conf_cot",
+    "query": "纯 Chain-of-Thought 相比 ReAct 缺什么能力",
+    "relevant_chunk_ids": ["react#0"],
+    "type": "confusable"
+  },
+  {
+    "id": "conf_encoder_decoder",
+    "query": "GPT 一类模型主要用 Encoder 还是 Decoder",
+    "relevant_chunk_ids": ["transformer#1"],
+    "type": "confusable"
+  }
+]

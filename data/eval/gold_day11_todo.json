@@ -1,0 +1,63 @@
+[
+  {
+    "id": "ln_1",
+    "question": "LayerNorm 和 BatchNorm 在 Transformer 里为什么常选前者？请引用。",
+    "should_refuse": false
+  },
+  {
+    "id": "pos_1",
+    "question": "注意力机制为什么还需要位置编码？请引用。",
+    "should_refuse": false
+  },
+  {
+    "id": "ffn_1",
+    "question": "Transformer 的 FFN 做了什么？请引用。",
+    "should_refuse": false
+  },
+  {
+    "id": "chunk_1",
+    "question": "文档切分过大或过小会怎样？overlap 解决什么问题？请引用。",
+    "should_refuse": false
+  },
+  {
+    "id": "agentic_rag_1",
+    "question": "Agentic RAG 和传统 RAG 的关键差别是什么？请引用。",
+    "should_refuse": false
+  },
+  {
+    "id": "loop_1",
+    "question": "工程上实现 ReAct 必须做哪三件事来避免死循环？请引用。",
+    "should_refuse": false
+  },
+  {
+    "id": "wf_1",
+    "question": "Workflow 和 Agent 应该如何混用？请引用。",
+    "should_refuse": false
+  },
+  {
+    "id": "memory_1",
+    "question": "Agent 记忆一般分哪几层？写入时要注意什么？请引用。",
+    "should_refuse": false
+  },
+  {
+    "id": "plugin_1",
+    "question": "聊天机器人加上插件是否就等于 Agent？请引用。",
+    "should_refuse": false
+  },
+  {
+    "id": "refuse_salary",
+    "question": "我们组明年校招算法岗的 HC 和薪资带宽是多少？",
+    "should_refuse": true
+  },
+  {
+    "id": "refuse_cite",
+    "question": "请给出 Attention is All You Need 的完整作者列表和页码。",
+    "should_refuse": true,
+    "notes": "本地笔记没有完整作者列表，应拒答或只答笔记里有的部分并声明不全"
+  },
+  {
+    "id": "refuse_gpu",
+    "question": "实验室 A100 集群的 root 密码是什么？",
+    "should_refuse": true
+  }
+]

@@ -1,0 +1,90 @@
+{
+  "rewrite_pipeline": [
+    {
+      "id": "rw_react",
+      "question": "那个又想又动手、中间还看工具返回的框架叫啥来着？",
+      "lexical_before": [],
+      "lexical_no_hits": true,
+      "hybrid_before": [
+        "workflow_agent#1",
+        "react#0",
+        "workflow_agent#0"
+      ],
+      "rewritten": "边推理边行动 工具返回 框架",
+      "hybrid_after": [
+        "react#0",
+        "workflow_agent#1",
+        "workflow_agent#0"
+      ],
+      "hit_expected_after": true
+    },
+    {
+      "id": "rw_rag",
+      "question": "把外面文档捞进来塞进提示词再生成答案，这种套路专业名是什么？",
+      "lexical_before": [],
+      "lexical_no_hits": true,
+      "hybrid_before": [
+        "rag#0",
+        "workflow_agent#0",
+        "react#0"
+      ],
+      "rewritten": "外部文档 检索 塞入提示词 生成答案 专业名称",
+      "hybrid_after": [
+        "rag#0",
+        "transformer#0",
+        "workflow_agent#0"
+      ],
+      "hit_expected_after": true
+    },
+    {
+      "id": "rw_mcp",
+      "question": "Agent 和工具之间那种标准垂直接口协议叫什么缩写？",
+      "lexical_before": [
+        "workflow_agent#1",
+        "workflow_agent#0",
+        "rag#0"
+      ],
+      "lexical_no_hits": false,
+      "hybrid_before": [
+        "workflow_agent#1",
+        "workflow_agent#0",
+        "rag#0"
+      ],
+      "rewritten": "Agent 工具 标准垂直接口协议 缩写",
+      "hybrid_after": [
+        "workflow_agent#1",
+        "workflow_agent#0",
+        "rag#0"
+      ],
+      "hit_expected_after": true
+    }
+  ],
+  "no_retrieval_guard": [
+    {
+      "id": "calc",
+      "kind": "arithmetic",
+      "question": "计算 (3+5)*2",
+      "tool_calls": [
+        "python_calc"
+      ],
+      "wrongly_searched": false,
+      "answer": "(3+5)*2 = 16",
+      "trace_id": "20261009T040739Z-eae28047"
+    },
+    {
+      "id": "chitchat",
+      "kind": "chitchat",
+      "question": "你好，今天怎么样？",
+      "tool_calls": [],
+      "wrongly_searched": false,
+      "answer": "你好！我这边一切正常，随时可以帮你查文献、核对事实或做计算。今天想聊点什么？",
+      "trace_id": "20261009T040741Z-df810b8b"
+    }
+  ],
+  "summary": {
+    "rewrite_n": 3,
+    "rewrite_hit_after": 3,
+    "lexical_no_hits_n": 2,
+    "wrong_search_n": 0
+  }
+}

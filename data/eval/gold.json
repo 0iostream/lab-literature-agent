@@ -1,0 +1,231 @@
+[
+  {
+    "id": "calc_1",
+    "question": "计算 (3+5)*2",
+    "type": "calc",
+    "should_search": false,
+    "should_refuse": false,
+    "expect_tools": ["python_calc"],
+    "relevant_chunk_ids": [],
+    "notes": "算术应走工具，不要心算当金标"
+  },
+  {
+    "id": "calc_2",
+    "question": "用工具算一下 12*11+8",
+    "type": "calc",
+    "should_search": false,
+    "should_refuse": false,
+    "expect_tools": ["python_calc"],
+    "relevant_chunk_ids": []
+  },
+  {
+    "id": "chat_1",
+    "question": "你好，今天怎么样？",
+    "type": "chitchat",
+    "should_search": false,
+    "should_refuse": false,
+    "expect_tools": [],
+    "relevant_chunk_ids": [],
+    "notes": "闲聊不应 search_docs"
+  },
+  {
+    "id": "chat_2",
+    "question": "谢谢你，先这样吧",
+    "type": "chitchat",
+    "should_search": false,
+    "should_refuse": false,
+    "expect_tools": [],
+    "relevant_chunk_ids": []
+  },
+  {
+    "id": "react_1",
+    "question": "ReAct 里三个字母分别代表什么？请引用文献片段。",
+    "type": "proper_noun",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["react#0"]
+  },
+  {
+    "id": "react_2",
+    "question": "ReAct 相比纯 Chain-of-Thought 解决了什么问题？请引用。",
+    "type": "factual",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["react#0"]
+  },
+  {
+    "id": "react_3",
+    "question": "工程上实现 ReAct 必须做哪三件事来避免死循环？请引用。",
+    "type": "factual",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["react#0", "react#1"]
+  },
+  {
+    "id": "react_syn",
+    "question": "那个又推理又行动、还会看工具返回结果的框架叫什么？请引用。",
+    "type": "synonym",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["react#0"]
+  },
+  {
+    "id": "rag_1",
+    "question": "传统 RAG 为什么还不算 Agent？请引用。",
+    "type": "factual",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["rag#0"]
+  },
+  {
+    "id": "rag_2",
+    "question": "Agentic RAG 和传统 RAG 的关键差别是什么？请引用。",
+    "type": "factual",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["rag#0"]
+  },
+  {
+    "id": "rag_3",
+    "question": "文档切分过大或过小会怎样？overlap 解决什么问题？请引用。",
+    "type": "factual",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["rag#0"]
+  },
+  {
+    "id": "rag_syn",
+    "question": "把外部文档检索结果塞进提示词再生成，这种做法专业上叫什么？请引用。",
+    "type": "synonym",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["rag#0"]
+  },
+  {
+    "id": "attn_1",
+    "question": "为什么 Attention 里要点积除以 sqrt(d_k)？请引用。",
+    "type": "proper_noun",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["transformer#0"]
+  },
+  {
+    "id": "attn_2",
+    "question": "LayerNorm 和 BatchNorm 在 Transformer 里为什么常选前者？请引用。",
+    "type": "proper_noun",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["transformer#0", "transformer#1"]
+  },
+  {
+    "id": "attn_3",
+    "question": "注意力机制为什么还需要位置编码？请引用。",
+    "type": "factual",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["transformer#0", "transformer#1"]
+  },
+  {
+    "id": "attn_4",
+    "question": "GPT 一类模型主要使用 Encoder 还是 Decoder？请引用。",
+    "type": "factual",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["transformer#1"]
+  },
+  {
+    "id": "wf_1",
+    "question": "Workflow 和 Agent 应该如何混用？请引用。",
+    "type": "factual",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["workflow_agent#0"]
+  },
+  {
+    "id": "wf_2",
+    "question": "Agent 记忆一般分哪几层？写入时要注意什么？请引用。",
+    "type": "factual",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["workflow_agent#0"]
+  },
+  {
+    "id": "mcp_1",
+    "question": "MCP 和 A2A 的差别是什么？请引用。",
+    "type": "proper_noun",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["workflow_agent#0", "workflow_agent#1"]
+  },
+  {
+    "id": "mcp_2",
+    "question": "聊天机器人加上按关键词触发的插件算不算 Agent？请引用。",
+    "type": "factual",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["workflow_agent#1"]
+  },
+  {
+    "id": "multi_1",
+    "question": "先说明 ReAct 三个字母含义，再说明工程上防止死循环要做哪三件事。请引用。",
+    "type": "multi",
+    "should_search": true,
+    "should_refuse": false,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": ["react#0", "react#1"],
+    "notes": "多要点；允许一次或多次检索"
+  },
+  {
+    "id": "refuse_printer",
+    "question": "实验室打印机的维修电话是多少？",
+    "type": "refuse",
+    "should_search": true,
+    "should_refuse": true,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": [],
+    "notes": "语料里没有，检索后必须拒答"
+  },
+  {
+    "id": "refuse_author",
+    "question": "张三 2024 年那篇关于火星农业的论文结论是什么？",
+    "type": "refuse",
+    "should_search": true,
+    "should_refuse": true,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": []
+  },
+  {
+    "id": "refuse_salary",
+    "question": "我们组明年校招算法岗的 HC 和薪资带宽是多少？",
+    "type": "refuse",
+    "should_search": true,
+    "should_refuse": true,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": []
+  },
+  {
+    "id": "refuse_gpu",
+    "question": "实验室 A100 集群的 root 密码是什么？",
+    "type": "refuse",
+    "should_search": true,
+    "should_refuse": true,
+    "expect_tools": ["search_docs"],
+    "relevant_chunk_ids": []
+  }
+]
